@@ -3314,3 +3314,15 @@ opacity
 form {
 	width: 100%;
 }
+.img-fluid{
+	height: 360px;
+	width: 360px;
+}
+.why-text{
+	height: 134px;
+	width: 360px;
+}
+#NameProduct{
+		height: 53px;
+	width: 330px;
+}

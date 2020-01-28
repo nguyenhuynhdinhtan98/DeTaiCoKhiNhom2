@@ -203,17 +203,17 @@
 				<div class="row">
 					<c:forEach var="sanpham" items="${sanpham}">
 						<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-							<a class="disabled btn-warning  " aria-disabled="true"
+							<a class="disabled btn-warning  " aria-disabled="true" 
 								href="productdetail/${sanpham.getMaSanPham()}">
 								<div class="products-single fix">
 									<div class="box-img-hover">
-										<img
+										<img  id="imageProduct"
 											src="<c:url value="./resources/image/products/${sanpham.getHinhSanPham()}"/>"
 											class="img-fluid" alt="Image">
 									</div>
 									<div class="why-text">
-										<h4 class="font-weight-bold text-dark">${sanpham.getTenSanPham()}</h4>
-										<h5 class="text-dark">${sanpham.getGiaTien()}</h5>
+										<h4 class="font-weight-bold text-dark" id="NameProduct">${sanpham.getTenSanPham()}</h4>
+										<h5 class="text-dark">Giá : ${sanpham.getGiaTien()}</h5>
 									</div>
 								</div>
 							</a>

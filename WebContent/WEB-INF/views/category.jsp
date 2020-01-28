@@ -228,14 +228,14 @@
 									<div class="type-lb">
 										<p class="sale">Sale</p>
 									</div>
-									<img
+									<img id="imageProduct"
 										src="<c:url value="../resources/image/products/${sanpham.getHinhSanPham()}"/>"
 										class="img-fluid" alt="Image">
 
 								</div>
 								<div class="why-text">
-									<h4 class="font-weight-bold text-dark">${sanpham.getTenSanPham()}</h4>
-									<h5 class="text-dark">${sanpham.getGiaTien()}</h5>
+									<h4 class="font-weight-bold text-dark" id="NameProduct">${sanpham.getTenSanPham()}</h4>
+									<h5 class="text-dark">Giá : ${sanpham.getGiaTien()}</h5>
 								</div>
 							</div>
 						</a>
