@@ -51,7 +51,7 @@ public class HomeController {
 	public String Default( ModelMap modelMap, HttpSession httpSession) {
 		List<DanhMucSanPham> danhMucSanPhams = new ArrayList<>();
 		List<SanPham> sanPhams4 = new ArrayList<>();
-		sanPhams4 = sanPhamService.getBonSanPham();
+		sanPhams4 = sanPhamService.getBaSanPham();
 		danhMucSanPhams = taiKhoanService.getAllDanhMucSanPham();
 		danhMucSanPhams.forEach(x -> System.out.println(x));
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
@@ -62,7 +62,7 @@ public class HomeController {
 		}
 		modelMap.addAttribute("giohang", httpSession.getAttribute("giohang"));
 
-		SendEmail email = new SendEmail();
+		//SendEmail email = new SendEmail();
 		// email.SendEmail("nguyenhuynhdinhtan98@gmail.com");
 		return "home";
 	}

@@ -265,15 +265,14 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="title-all text-center">
-						<h1>Featured Products</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Sed sit amet lacus enim.</p>
+						<h1>Sản phẩm nổi bật</h1>
+					
 					</div>
 				</div>
 			</div>
 			<div class="row special-list">
 				<c:forEach var="lay4sanpham" items="${lay4sanpham}">
-					<div class="col-lg-3 col-md-6 special-grid best-seller">
+					<div class="col-lg-4 col-md-6 special-grid best-seller">
 						<a class="disabled btn-warning  " aria-disabled="true"
 							href="productdetail/${lay4sanpham.getMaSanPham()}">
 							<div class="products-single fix">

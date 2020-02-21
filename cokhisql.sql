@@ -1,4 +1,4 @@
-﻿create database detaicokhinhom2;
+CREATE DATABASE detaicokhinhom2;
 CREATE TABLE KhachHang (
     MaKhachHang INT NOT NULL AUTO_INCREMENT,
     TenTaiKhoan NVARCHAR(50) NOT NULL,
