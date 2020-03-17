@@ -159,7 +159,7 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="banner-frame">
-						<img class="img-thumbnail img-fluid"
+						<img class="img-thumbnail img-fluid img-constact"
 							src="<c:url value="./resources/images/iuh.jpg"/>" alt="">
 					</div>
 				</div>

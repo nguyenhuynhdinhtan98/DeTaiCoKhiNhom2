@@ -230,7 +230,7 @@
 									</div>
 									<img id="imageProduct"
 										src="<c:url value="../resources/image/products/${sanpham.getHinhSanPham()}"/>"
-										class="img-fluid" alt="Image">
+										class="img-fluid i" alt="Image">
 
 								</div>
 								<div class="why-text">

@@ -3315,8 +3315,20 @@ form {
 	width: 100%;
 }
 .img-fluid{
-	height: 360px;
-	width: 360px;
+/* 	height: 125px;
+	width: 125px; */
+}
+#imageProduct{
+	height: 262px;
+	width: 350px; 
+}
+.img-constact{
+	height: 450px;
+	width: 700px;
+}
+#img-constact{
+	height: 450px;
+	width: 700px;
 }
 .why-text{
 	height: 134px;

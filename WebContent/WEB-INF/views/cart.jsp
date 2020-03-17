@@ -76,7 +76,7 @@
 									<li><a href="/category/${danhmuc.getMaDanhMucSanPham()}">${danhmuc.getTenDanhMuc()}</a></li>
 								</c:forEach>
 							</ul></li>
-						<li class="nav-item"><a class="nav-link" href="/product">Sản
+						<li class="nav-item"><a class="nav-link" href="./product">Sản
 								phẩm</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="./contact">Liên hệ </a></li>
