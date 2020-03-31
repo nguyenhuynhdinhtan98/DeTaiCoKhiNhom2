@@ -36,7 +36,6 @@ public class ProductController {
 		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
 		sanPhams=sanPhamService.getAllSanPham();
 		modelMap.addAttribute("sanpham", sanPhams);
-		System.out.println(sanPhams.size());
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		if(httpSession.getAttribute("taikhoan") != null) {
 			modelMap.addAttribute("user",httpSession.getAttribute("taikhoan"));

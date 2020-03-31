@@ -22,9 +22,14 @@ import service.SanPhamService;
 @RequestMapping("/contact")
 @SessionAttributes({ "taikhoan", "giohang" })
 public class ContactController {
+	@Autowired
+	DanhMucSanPhamService danhMucSanPhamService;
 	@GetMapping
 	@Transactional
 	public String Default(ModelMap modelMap,HttpSession httpSession) {
+		List<DanhMucSanPham> danhMucSanPhams = new ArrayList<>();
+		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
+		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		return "contact";
 	}
 

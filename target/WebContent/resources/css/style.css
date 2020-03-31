@@ -574,7 +574,13 @@ nav.navbar.bootsnav ul.nav>li>a {
 }
 
 nav.navbar.bootsnav ul.nav li.active>a {
-	color: #ffc107;
+	font-weight: 700;
+	font-size: 16px;
+	padding-top: 30px; padding-bottom : 30px; padding-left : 10px;
+	padding-right : 30px;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	padding-right: 30px;
 }
 
 nav.navbar.bootsnav ul.nav li.active>a:hover {
@@ -804,7 +810,7 @@ ul.cart-list>li.total>.btn:hover {
 }
 
 .top-search input.form-control {
-	padding-top:8px;
+	padding-top: 8px;
 	color: #ffffff;
 }
 
@@ -1126,42 +1132,82 @@ keyframes bounceY { 0% {
 40%
 {
 transform
+
+
 :
+
  
+
 translateY
-(-100px);
+
+
+(-100
+px
+);
+
 
     
+
 }
 65%
 {
 transform
+
+
 :
+
  
+
 translateY
-(-52px);
+
+
+(-52
+px
+);
+
 
     
+
 }
 82%
 {
 transform
+
+
 :
+
  
+
 translateY
-(-25px);
+
+
+(-25
+px
+);
+
 
     
+
 }
 92%
 {
 transform
+
+
 :
+
  
+
 translateY
-(-12px);
+
+
+(-12
+px
+);
+
 
     
+
 }
 55%,
 75%,
@@ -1170,12 +1216,22 @@ translateY
 100%
 {
 transform
+
+
 :
+
  
+
 translateY
-(0px);
+
+
+(0
+px
+);
+
 
     
+
 }
 }
 @
@@ -1186,42 +1242,82 @@ translateY
 40%
 {
 -moz-transform
+
+
 :
+
  
+
 translateY
-(-100px);
+
+
+(-100
+px
+);
+
 
     
+
 }
 65%
 {
 -moz-transform
+
+
 :
+
  
+
 translateY
-(-52px);
+
+
+(-52
+px
+);
+
 
     
+
 }
 82%
 {
 -moz-transform
+
+
 :
+
  
+
 translateY
-(-25px);
+
+
+(-25
+px
+);
+
 
     
+
 }
 92%
 {
 -moz-transform
+
+
 :
+
  
+
 translateY
-(-12px);
+
+
+(-12
+px
+);
+
 
     
+
 }
 55%,
 75%,
@@ -1230,12 +1326,22 @@ translateY
 100%
 {
 -moz-transform
+
+
 :
+
  
+
 translateY
-(0px);
+
+
+(0
+px
+);
+
 
     
+
 }
 }
 @
@@ -1246,42 +1352,82 @@ translateY
 40%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateY
-(-100px);
+
+
+(-100
+px
+);
+
 
     
+
 }
 65%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateY
-(-52px);
+
+
+(-52
+px
+);
+
 
     
+
 }
 82%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateY
-(-25px);
+
+
+(-25
+px
+);
+
 
     
+
 }
 92%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateY
-(-12px);
+
+
+(-12
+px
+);
+
 
     
+
 }
 55%,
 75%,
@@ -1290,12 +1436,22 @@ translateY
 100%
 {
 -webkit-transform
+
+
 :
+
  
+
 translateY
-(0px);
+
+
+(0
+px
+);
+
 
     
+
 }
 }
 
@@ -2140,13 +2296,45 @@ translateY
 	float: left;
 }
 
-.toolbar-sorter-right .bootstrap-select.form-control:not ([class*="col-"]
-	) {
-	width: 77%;
-	float: right;
-	height: 40px !important;
-}
+.toolbar-sorter-right
+ 
+.bootstrap-select
+.form-control
+:not
+ 
+(
+[
+class
+*=
+"col-"
+]
 
+	
+)
+{
+width
+:
+ 
+77%;
+float
+:
+ 
+right
+;
+
+	
+height
+:
+ 
+40
+px
+ 
+!
+important
+;
+
+
+}
 .toolbar-sorter-right .bootstrap-select.btn-group>.dropdown-toggle {
 	padding: 0px;
 	border-radius: 0px;
@@ -2301,17 +2489,14 @@ translateY
 }
 
 .table-main table td p {
-font-weight: lighter;
-margin-top: 12px;
+	font-weight: lighter;
+	margin-top: 12px;
 }
-
-
 
 .table-main table td h3 {
-font-weight: bold;
-padding-top: 1px;
+	font-weight: bold;
+	padding-top: 1px;
 }
-
 
 .quantity-box input {
 	width: 60px;
@@ -2629,39 +2814,57 @@ padding-top: 1px;
 40%
 {
 opacity
+
+
 :
+
  
+
 0
 .5
-;
 
-        
+
+;
 box-shadow
+
+
 :
+
  
+
 0
 0
 0
 2
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .1
+
+
 )
 ,
 0
 0
 10
 px
+
  
+
 10
 px
+
  
+
 #ffc107
 ,
 0
@@ -2669,46 +2872,64 @@ px
 0
 10
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .5
-);
 
-    
+
+);
 }
 100%
 {
 box-shadow
+
+
 :
+
  
+
 0
 0
 0
 2
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .1
+
+
 )
 ,
 0
 0
 10
 px
+
  
+
 10
 px
+
  
+
 #ffc107
 ,
 0
@@ -2716,29 +2937,43 @@ px
 0
 10
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .5
-);
 
-        
+
+);
 -webkit-transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .5
-);
 
-        
+
+);
 opacity
+
+
 :
+
  
+
 0;
 }
 }
@@ -2750,39 +2985,57 @@ opacity
 40%
 {
 opacity
+
+
 :
+
  
+
 0
 .5
-;
 
-        
+
+;
 box-shadow
+
+
 :
+
  
+
 0
 0
 0
 2
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .1
+
+
 )
 ,
 0
 0
 10
 px
+
  
+
 10
 px
+
  
+
 #ffc107
 ,
 0
@@ -2790,46 +3043,64 @@ px
 0
 10
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .5
-);
 
-    
+
+);
 }
 100%
 {
 box-shadow
+
+
 :
+
  
+
 0
 0
 0
 2
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .1
+
+
 )
 ,
 0
 0
 10
 px
+
  
+
 10
 px
+
  
+
 #ffc107
 ,
 0
@@ -2837,29 +3108,43 @@ px
 0
 10
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .5
-);
 
-        
+
+);
 -moz-transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .5
-);
 
-        
+
+);
 opacity
+
+
 :
+
  
+
 0;
 }
 }
@@ -2871,39 +3156,57 @@ keyframes sonarEffect { 0% {
 40%
 {
 opacity
+
+
 :
+
  
+
 0
 .5
-;
 
-        
+
+;
 box-shadow
+
+
 :
+
  
+
 0
 0
 0
 2
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .1
+
+
 )
 ,
 0
 0
 10
 px
+
  
+
 10
 px
+
  
+
 #ffc107
 ,
 0
@@ -2911,46 +3214,64 @@ px
 0
 10
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .5
-);
 
-    
+
+);
 }
 100%
 {
 box-shadow
+
+
 :
+
  
+
 0
 0
 0
 2
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .1
+
+
 )
 ,
 0
 0
 10
 px
+
  
+
 10
 px
+
  
+
 #3851bc
 ,
 0
@@ -2958,29 +3279,43 @@ px
 0
 10
 px
+
  
+
 rgba
+
+
 (0
 ,
 53,
 68,
 0
 .5
-);
 
-        
+
+);
 transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .5
-);
 
-        
+
+);
 opacity
+
+
 :
+
  
+
 0;
 }
 }
@@ -3283,15 +3618,16 @@ opacity
 	/* background-color: #FFC107; */
 	font-size: 16px;
 	cursor: pointer;
-	height:33px;
-	font-weight:500;
+	height: 33px;
+	font-weight: 500;
 	width: 100%;
 }
-.login{
+
+.login {
 	font-size: 16px;
 	cursor: pointer;
-	height:33px !important;
-	font-weight:500;
+	height: 33px !important;
+	font-weight: 500;
 	width: 100%;
 }
 
@@ -3299,42 +3635,51 @@ opacity
 	/* background-color: #FFC107; */
 	font-size: 16px;
 	cursor: pointer;
-	height:33px;
-	font-weight:500;
+	height: 33px;
+	font-weight: 500;
 	width: 100%;
 }
+
 #OrderRedirect {
 	/* background-color: #FFC107; */
 	font-size: 16px;
 	cursor: pointer;
-	height:33px;
-	font-weight:500;
+	height: 33px;
+	font-weight: 500;
 	width: 100%;
 }
+
 form {
 	width: 100%;
 }
-.img-fluid{
-/* 	height: 125px;
+
+.img-fluid {
+	/* 	height: 125px;
 	width: 125px; */
+	
 }
-#imageProduct{
+
+#imageProduct {
 	height: 262px;
-	width: 350px; 
+	width: 350px;
 }
-.img-constact{
+
+.img-constact {
 	height: 450px;
 	width: 700px;
 }
-#img-constact{
+
+#img-constact {
 	height: 450px;
 	width: 700px;
 }
-.why-text{
+
+.why-text {
 	height: 134px;
 	width: 360px;
 }
-#NameProduct{
-		height: 53px;
+
+#NameProduct {
+	height: 53px;
 	width: 330px;
 }

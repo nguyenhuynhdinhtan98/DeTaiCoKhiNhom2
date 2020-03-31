@@ -42,7 +42,7 @@ import service.SendEmail;
 public class HomeController {
 
 	@Autowired
-	DanhMucSanPhamService taiKhoanService;
+	DanhMucSanPhamService danhMucSanPhamService;
 	@Autowired
 	SanPhamService sanPhamService;
 
@@ -52,8 +52,7 @@ public class HomeController {
 		List<DanhMucSanPham> danhMucSanPhams = new ArrayList<>();
 		List<SanPham> sanPhams4 = new ArrayList<>();
 		sanPhams4 = sanPhamService.getBaSanPham();
-		danhMucSanPhams = taiKhoanService.getAllDanhMucSanPham();
-		danhMucSanPhams.forEach(x -> System.out.println(x));
+		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		modelMap.addAttribute("lay4sanpham", sanPhams4);
 		if (httpSession.getAttribute("taikhoan") != null) {

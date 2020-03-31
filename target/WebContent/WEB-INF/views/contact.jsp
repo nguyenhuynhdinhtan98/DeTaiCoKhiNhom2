@@ -88,7 +88,7 @@
 				<!-- Start Atribute Navigation -->
 				<div class="attr-nav">
 					<ul>
-						<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+					
 						<li class=""><a href="cart"> <i
 								class="fa fa-shopping-bag"></i> <span class="badge">${giohang.size()}</span>
 						</a></li>
