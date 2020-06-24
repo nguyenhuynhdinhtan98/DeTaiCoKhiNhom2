@@ -60,7 +60,6 @@ public class HomeController {
 			modelMap.addAttribute("user", httpSession.getAttribute("taikhoan"));
 		}
 		modelMap.addAttribute("giohang", httpSession.getAttribute("giohang"));
-
 		//SendEmail email = new SendEmail();
 		// email.SendEmail("nguyenhuynhdinhtan98@gmail.com");
 		return "home";

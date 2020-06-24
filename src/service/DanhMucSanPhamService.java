@@ -13,18 +13,18 @@ import implement.DanhMucSanPhamImpls;
 @Service
 public class DanhMucSanPhamService implements DanhMucSanPhamImpls {
 	@Autowired
-	DanhMucSanPhamDAO taiKhoanDao;
+	DanhMucSanPhamDAO danhMucSanPhamDAO;
 
 	@Override
 	public List<DanhMucSanPham> getAllDanhMucSanPham() {
 		// TODO Auto-generated method stub
-		List<DanhMucSanPham> danhMucSanPhams = taiKhoanDao.getAllDanhMucSanPham();
+		List<DanhMucSanPham> danhMucSanPhams = danhMucSanPhamDAO.getAllDanhMucSanPham();
 		return danhMucSanPhams;
 	}
 
 	@Override
 	public DanhMucSanPham getAllDanhMucSanPhamById(int maDanhMucSanPham) {
-		DanhMucSanPham danhMucSanPhams = taiKhoanDao.getAllDanhMucSanPhamById(maDanhMucSanPham);
+		DanhMucSanPham danhMucSanPhams = danhMucSanPhamDAO.getAllDanhMucSanPhamById(maDanhMucSanPham);
 		return danhMucSanPhams;
 	}
 

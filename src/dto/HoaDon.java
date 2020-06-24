@@ -54,6 +54,9 @@ public class HoaDon implements Serializable {
     @Size(max = 30)
     @Column(name = "NgayMua")
     private String ngayMua;
+    @Size(max = 30)
+    @Column(name = "TongTien")
+    private double tongTien;
     @OneToMany(mappedBy = "maHoaDon")
     private List<ChiTietHoaDon> chiTietHoaDonList;
     @JoinColumn(name = "MaKhachHang", referencedColumnName = "MaKhachHang")
@@ -82,7 +85,15 @@ public class HoaDon implements Serializable {
         return tenKhachHang;
     }
 
-    public void setTenKhachHang(String tenKhachHang) {
+    public double getTongTien() {
+		return tongTien;
+	}
+
+	public void setTongTien(double tongTien) {
+		this.tongTien = tongTien;
+	}
+
+	public void setTenKhachHang(String tenKhachHang) {
         this.tenKhachHang = tenKhachHang;
     }
 

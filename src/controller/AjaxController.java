@@ -125,18 +125,22 @@ public class AjaxController {
 		String output = "";
 		System.out.println(hoVaTen + " " + soDienThoai + " " + diaChi);
 		KhachHang khachHang = (KhachHang) httpSession.getAttribute("taikhoan");
-		if (hoVaTen.equalsIgnoreCase("") || soDienThoai.equalsIgnoreCase("")
-				|| diaChi.equalsIgnoreCase("")) {
+		if (hoVaTen.equalsIgnoreCase("") || soDienThoai.equalsIgnoreCase("") || diaChi.equalsIgnoreCase("")) {
 			output = "1";
 		} else {
 			if (httpSession.getAttribute("giohang") == null) {
 				output = "3";
 			} else {
+				gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+				double TongTien = 0;
+				for (GioHang gioHang : gioHangs) {
+					TongTien = TongTien + Double.parseDouble(gioHang.getTongTien());
+				}
 				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 				LocalDateTime now = LocalDateTime.now();
 				Date date = new Date();
-				gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 				HoaDon hoaDon = new HoaDon(hoVaTen, soDienThoai, diaChi, false, String.valueOf(dtf.format(now)));
+				hoaDon.setTongTien(TongTien);
 				hoaDon.setMaKhachHang(khachHangService.LayKhachHang(khachHang.getMaKhachHang()));
 				hoaDon.setMaNhanVien(nhanVienService.LayNhanVien(1));
 				hoaDonService.ThemHoaDon(hoaDon);
@@ -146,8 +150,8 @@ public class AjaxController {
 					chiTietHoaDon.setMaSanPham(sanPhamService.ChiTietSanPham(gioHang.getMaSanPham()));
 					chiTietHoaDonService.ThemChiTietHoaDon(chiTietHoaDon);
 				}
-				//SendEmail email = new SendEmail();
-				//email.SendEmail(khachHang.getTenTaiKhoan(),gioHangs,khachHang);
+				SendEmail email = new SendEmail();
+//				email.SendEmail("nguyenhuynhdinhtan98@gmail.com", gioHangs, khachHang);
 				output = "2";
 				httpSession.removeAttribute("giohang");
 				sessionStatus.setComplete();
@@ -158,8 +162,8 @@ public class AjaxController {
 
 	@PostMapping("/DangKyTaiKhoan")
 	@ResponseBody
-	public String DangKyTaiKhoan(@RequestParam String hoVaTenDangKy,
-			@RequestParam String emailDangKy, @RequestParam String matKhauDangKy1, @RequestParam String matKhauDangKy2,
+	public String DangKyTaiKhoan(@RequestParam String hoVaTenDangKy, @RequestParam String emailDangKy,
+			@RequestParam String matKhauDangKy1, @RequestParam String matKhauDangKy2,
 			@RequestParam String dienThoaiDangKy, @RequestParam String diaChiDangKy, @RequestParam int gioiTinhDangKy,
 			HttpSession httpSession) {
 		String output = "";
@@ -170,7 +174,7 @@ public class AjaxController {
 		if (khachHangService.KiemTraEmailKhachHang(emailDangKy) == true || matcher.find() == false) {
 			output = "1";
 		} else {
-			if ( hoVaTenDangKy.equals("") || emailDangKy.equals("") || matKhauDangKy1.equals("")
+			if (hoVaTenDangKy.equals("") || emailDangKy.equals("") || matKhauDangKy1.equals("")
 					|| matKhauDangKy2.equals("") || dienThoaiDangKy.equals("")) {
 				output = "2";
 			} else {
@@ -178,11 +182,11 @@ public class AjaxController {
 					output = "3";
 					KhachHang khachHang;
 					if (gioiTinhDangKy == 1) {
-						khachHang = new KhachHang(emailDangKy, matKhauDangKy1,hoVaTenDangKy,
-								dienThoaiDangKy, false, dienThoaiDangKy);
+						khachHang = new KhachHang(emailDangKy, matKhauDangKy1, hoVaTenDangKy, dienThoaiDangKy, false,
+								dienThoaiDangKy);
 					} else {
-						khachHang = new KhachHang(emailDangKy, matKhauDangKy1,hoVaTenDangKy,
-								dienThoaiDangKy, true, dienThoaiDangKy);
+						khachHang = new KhachHang(emailDangKy, matKhauDangKy1, hoVaTenDangKy, dienThoaiDangKy, true,
+								dienThoaiDangKy);
 					}
 					khachHangService.ThemKhachHang(khachHang);
 				} else {

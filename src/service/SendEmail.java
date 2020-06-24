@@ -37,7 +37,6 @@ public class SendEmail {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			message.setSubject("Testing Subject");
 			message.setText("Gundam");
-
 			// send message
 			Transport.send(message);
 

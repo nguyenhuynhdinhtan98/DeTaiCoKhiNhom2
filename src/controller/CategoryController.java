@@ -40,7 +40,6 @@ public class CategoryController {
 		List<SanPham> sanPhams = new ArrayList<>();
 		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
 		DanhMucSanPham danhMucSanPham = danhMucSanPhamService.getAllDanhMucSanPhamById(maDanhMucSanPham);
-		System.out.println(danhMucSanPham.getSanPhamList());
 		modelMap.addAttribute("sanpham", danhMucSanPham);
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		if (httpSession.getAttribute("taikhoan") != null) {
