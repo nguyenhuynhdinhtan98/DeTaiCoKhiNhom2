@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
 
 import dto.ChiTietHoaDon;
 import dto.GioHang;
@@ -96,7 +97,6 @@ public class AjaxController {
 	@GetMapping("/TongTien")
 	@ResponseBody
 	public String LayTongTien(@RequestParam int maSanPham, HttpSession httpSession) {
-		System.out.println(maSanPham + " " + " ");
 		DecimalFormat format = new DecimalFormat("0.#");
 		if (httpSession.getAttribute("giohang") != null) {
 			gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
@@ -121,9 +121,8 @@ public class AjaxController {
 	@GetMapping("/ThemHoaDon")
 	@ResponseBody
 	public String ThemHoaDon(@RequestParam String hoVaTen, @RequestParam String soDienThoai,
-			@RequestParam String diaChi, HttpSession httpSession, SessionStatus sessionStatus) {
+			@RequestParam String diaChi, HttpSession httpSession, SessionStatus sessionStatus, WebRequest request) {
 		String output = "";
-		System.out.println(hoVaTen + " " + soDienThoai + " " + diaChi);
 		KhachHang khachHang = (KhachHang) httpSession.getAttribute("taikhoan");
 		if (hoVaTen.equalsIgnoreCase("") || soDienThoai.equalsIgnoreCase("") || diaChi.equalsIgnoreCase("")) {
 			output = "1";
@@ -155,8 +154,10 @@ public class AjaxController {
 				output = "2";
 				httpSession.removeAttribute("giohang");
 				sessionStatus.setComplete();
+				httpSession.setAttribute("taikhoan", khachHang);
 			}
 		}
+		httpSession.setAttribute("taikhoan", khachHang);
 		return output;
 	}
 

@@ -46,6 +46,7 @@ $(document).ready(function() {
 			},
 			success : function(data) {
 				self.closest("tr").remove();
+				window.location.reload();
 			}
 		});
 	});
@@ -87,8 +88,9 @@ $(document).ready(function() {
 					alert("Đặt hàng thành công.");
 					window.location.reload();
 				} else if (data === "3") {
-					alert("Kiểm tra giỏ hàng.");
+					alert("Không có sản phẩm trong giỏ hàng.");
 				}
+				event.preventDefault(); 
 			}
 		});
 	});
