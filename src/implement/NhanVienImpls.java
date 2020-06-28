@@ -9,4 +9,5 @@ import dto.SanPham;
 
 public interface NhanVienImpls {
 	NhanVien LayNhanVien(int maNhanVien);
+	NhanVien KiemTraNhanVien(String taiKhoan,String matKhau);
 }

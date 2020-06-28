@@ -72,10 +72,17 @@ public class SanPhamDAO implements SanPhamImpls {
 
 	@Override
 	public List<SanPham> getAllSanPhamWithKeyword(String keyword) {
-		String query = "from SanPham where TenSanPham like '%" + keyword +"%'" ;
+		String query = "from SanPham where TenSanPham like '%" + keyword + "%'";
 		Session session = sessionFactory.getCurrentSession();
 		List<SanPham> result = session.createQuery(query).getResultList();
 		return result;
+	}
+
+	@Override
+	public void removeSanPham(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		SanPham sanPham = session.load(SanPham.class, id);
+		session.delete(sanPham);
 	}
 
 }

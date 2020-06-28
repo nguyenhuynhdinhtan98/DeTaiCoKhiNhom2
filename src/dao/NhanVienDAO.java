@@ -44,6 +44,20 @@ public class NhanVienDAO implements NhanVienImpls {
 		return nhanVien;
 	}
 
+	@Override
+	@Transactional
+	public NhanVien KiemTraNhanVien(String taiKhoan, String matKhau) {
+		String query = "from NhanVien where TenTaiKhoan like '" + taiKhoan + "' and MatKhau like '" + matKhau + "'";
+		Session session = sessionFactory.getCurrentSession();
+		NhanVien nhanVien =new NhanVien();
+		try {
+			nhanVien = (NhanVien) session.createQuery(query).getSingleResult();
+		} catch (Exception e) {
+			
+		}
+		return nhanVien;
+	}
+
 
 
 }

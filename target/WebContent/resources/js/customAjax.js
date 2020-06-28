@@ -20,16 +20,16 @@ $(document).ready(function() {
 		var hinhAnh = $("#hinhAnh").attr("src").replace(/^.*[\\\/]/, "");
 		console.log(tensanpham);
 		$.ajax({
-			url : "../api/ThemGioHang",
-			type : "GET",
-			data : {
-				maSanPham : masanpham,
-				tenSanPham : tensanpham,
-				soLuong : soLuong,
-				giaTien : giatien,
-				hinhAnh : hinhAnh
+			url: "../api/ThemGioHang",
+			type: "GET",
+			data: {
+				maSanPham: masanpham,
+				tenSanPham: tensanpham,
+				soLuong: soLuong,
+				giaTien: giatien,
+				hinhAnh: hinhAnh
 			},
-			success : function(data) {
+			success: function(data) {
 				window.location.reload();
 			}
 		});
@@ -39,12 +39,12 @@ $(document).ready(function() {
 		var self = $(this);
 		var masanpham = $(".table").find("tbody").find("tr").attr("name");
 		$.ajax({
-			url : "api/XoaGioHang",
-			type : "GET",
-			data : {
-				maSanPham : masanpham
+			url: "api/XoaGioHang",
+			type: "GET",
+			data: {
+				maSanPham: masanpham
 			},
-			success : function(data) {
+			success: function(data) {
 				self.closest("tr").remove();
 				window.location.reload();
 			}
@@ -53,12 +53,12 @@ $(document).ready(function() {
 	$(document).ready(function() {
 		var masanpham = $(".table").find("tbody").find("tr").attr("name");
 		$.ajax({
-			url : "api/TongTien",
-			type : "GET",
-			data : {
-				maSanPham : masanpham
+			url: "api/TongTien",
+			type: "GET",
+			data: {
+				maSanPham: masanpham
 			},
-			success : function(data) {
+			success: function(data) {
 				$("#total").html(data);
 				$("#totalall").html(data);
 			}
@@ -73,14 +73,14 @@ $(document).ready(function() {
 		var sdt = $("#phone").val();
 		var diachi = $("#address").val();
 		$.ajax({
-			url : "api/ThemHoaDon",
-			type : "GET",
-			data : {
-				hoVaTen : hoVaTen,
-				soDienThoai : sdt,
-				diaChi : diachi
+			url: "api/ThemHoaDon",
+			type: "GET",
+			data: {
+				hoVaTen: hoVaTen,
+				soDienThoai: sdt,
+				diaChi: diachi
 			},
-			success : function(data) {
+			success: function(data) {
 				console.log(data);
 				if (data === "1") {
 					alert("Vui lòng điền đầy đủ thông tin .");
@@ -90,45 +90,45 @@ $(document).ready(function() {
 				} else if (data === "3") {
 					alert("Không có sản phẩm trong giỏ hàng.");
 				}
-				event.preventDefault(); 
+				event.preventDefault();
 			}
 		});
 	});
 	$("#formDatHang").validate({
-		rules : {
-			hoVaTen : {
-				required : true,
-				minlength : 5,
-				maxlength : 40
+		rules: {
+			hoVaTen: {
+				required: true,
+				minlength: 5,
+				maxlength: 40
 			},
-			sdt : {
-				required : true,
-				number : true,
-				minlength : 10,
-				maxlength : 11
+			sdt: {
+				required: true,
+				number: true,
+				minlength: 10,
+				maxlength: 11
 			},
-			diachi : {
-				required : true,
-				minlength : 4,
-				maxlength : 50
+			diachi: {
+				required: true,
+				minlength: 4,
+				maxlength: 50
 			}
 		},
-		messages : {
-			hoVaTen : {
-				required : "Vui lòng nhập họ và tên",
-				minlength : "Tối thiểu 5 ký tự ",
-				maxlength : "Tối đa 40 ký tự"
+		messages: {
+			hoVaTen: {
+				required: "Vui lòng nhập họ và tên",
+				minlength: "Tối thiểu 5 ký tự ",
+				maxlength: "Tối đa 40 ký tự"
 			},
-			sdt : {
-				required : "Vui lòng nhập số điện thoại",
-				minlength : "Tối thiểu 10 ký tự ",
-				maxlength : "Tối đa 11 ký tự",
-				number : "Bắt buộc nhập số"
+			sdt: {
+				required: "Vui lòng nhập số điện thoại",
+				minlength: "Tối thiểu 10 ký tự ",
+				maxlength: "Tối đa 11 ký tự",
+				number: "Bắt buộc nhập số"
 			},
-			diachi : {
-				required : "Vui lòng nhập địa chỉ",
-				minlength : "Tối thiểu 4 ký tự ",
-				maxlength : "Tối đa 50 ký tự"
+			diachi: {
+				required: "Vui lòng nhập địa chỉ",
+				minlength: "Tối thiểu 4 ký tự ",
+				maxlength: "Tối đa 50 ký tự"
 			}
 		}
 	});
@@ -141,21 +141,21 @@ $(document).ready(function() {
 		var diachi = $("input[name='diaChiDangKy']").val();
 		var gioiTinhDangKy = $("input[name='gioiTinh']:checked").val();
 		$.ajax({
-			url : "api/DangKyTaiKhoan",
-			type : "POST",
-			data : {
-				hoVaTenDangKy : hoVaTenDangKy,
-				emailDangKy : email,
-				matKhauDangKy1 : matkhau1,
-				matKhauDangKy2 : matkhau2,
-				dienThoaiDangKy : sodienthoai,
-				diaChiDangKy : diachi,
-				gioiTinhDangKy : gioiTinhDangKy
+			url: "api/DangKyTaiKhoan",
+			type: "POST",
+			data: {
+				hoVaTenDangKy: hoVaTenDangKy,
+				emailDangKy: email,
+				matKhauDangKy1: matkhau1,
+				matKhauDangKy2: matkhau2,
+				dienThoaiDangKy: sodienthoai,
+				diaChiDangKy: diachi,
+				gioiTinhDangKy: gioiTinhDangKy
 			},
-			success : function(data) {
+			success: function(data) {
 				if (data == 1) {
 					$("#emailfail").css({
-						"display" : "contents"
+						"display": "contents"
 					});
 				}
 				if (data == 2) {
@@ -166,7 +166,7 @@ $(document).ready(function() {
 				}
 				if (data == 4) {
 					$("#passwordfail").css({
-						"display" : "contents"
+						"display": "contents"
 					});
 				}
 			}
@@ -174,74 +174,74 @@ $(document).ready(function() {
 	});
 
 	$("#formDangKy").validate({
-		rules : {
-			hoVaTenDangKy : {
-				required : true,
-				minlength : 5,
-				maxlength : 40,
+		rules: {
+			hoVaTenDangKy: {
+				required: true,
+				minlength: 5,
+				maxlength: 40,
 			},
-			emailDangKy : {
-				required : true,
-				email : true,
-				minlength : 6,
-				maxlength : 30,
+			emailDangKy: {
+				required: true,
+				email: true,
+				minlength: 6,
+				maxlength: 30,
 			},
-			matKhauDangKy1 : {
-				required : true,
-				minlength : 4,
-				maxlength : 20,
+			matKhauDangKy1: {
+				required: true,
+				minlength: 4,
+				maxlength: 20,
 			},
-			matKhauDangKy2 : {
-				required : true,
-				minlength : 4,
-				maxlength : 20,
-				equalTo : "#matKhauDangKy1",
+			matKhauDangKy2: {
+				required: true,
+				minlength: 4,
+				maxlength: 20,
+				equalTo: "#matKhauDangKy1",
 			},
-			dienThoaiDangKy : {
-				required : true,
-				number : true,
-				minlength : 10,
-				maxlength : 11
+			dienThoaiDangKy: {
+				required: true,
+				number: true,
+				minlength: 10,
+				maxlength: 11
 			},
-			diaChiDangKy : {
-				required : true,
-				minlength : 4,
-				maxlength : 50
+			diaChiDangKy: {
+				required: true,
+				minlength: 4,
+				maxlength: 50
 			}
 		},
-		messages : {
-			hoVaTenDangKy : {
-				required : "Vui lòng nhập họ và tên",
-				minlength : "Tối thiểu 5 ký tự ",
-				maxlength : "Tối đa 40 ký tự"
+		messages: {
+			hoVaTenDangKy: {
+				required: "Vui lòng nhập họ và tên",
+				minlength: "Tối thiểu 5 ký tự ",
+				maxlength: "Tối đa 40 ký tự"
 			},
-			emailDangKy : {
-				required : "Vui lòng nhập email",
-				email : "Không đúng định dạng email.",
-				minlength : "Tối thiểu 6 ký tự ",
-				maxlength : "Tối đa 30 ký tự",
+			emailDangKy: {
+				required: "Vui lòng nhập email",
+				email: "Không đúng định dạng email.",
+				minlength: "Tối thiểu 6 ký tự ",
+				maxlength: "Tối đa 30 ký tự",
 			},
-			matKhauDangKy1 : {
-				required : "Vui lòng nhập mật khẩu",
-				minlength : "Tối thiểu 4 ký tự ",
-				maxlength : "Tối đa 20 ký tự",
+			matKhauDangKy1: {
+				required: "Vui lòng nhập mật khẩu",
+				minlength: "Tối thiểu 4 ký tự ",
+				maxlength: "Tối đa 20 ký tự",
 			},
-			matKhauDangKy2 : {
-				required : "Vui lòng nhập mật khẩu",
-				minlength : "Tối thiểu 4 ký tự ",
-				maxlength : "Tối đa 20 ký tự",
-				equalTo : "Mật khẩu không trùng",
+			matKhauDangKy2: {
+				required: "Vui lòng nhập mật khẩu",
+				minlength: "Tối thiểu 4 ký tự ",
+				maxlength: "Tối đa 20 ký tự",
+				equalTo: "Mật khẩu không trùng",
 			},
-			dienThoaiDangKy : {
-				required : "Vui lòng nhập số điện thoại",
-				minlength : "Tối thiểu 10 ký tự ",
-				maxlength : "Tối đa 11 ký tự",
-				number : "Bắt buộc nhập số",
+			dienThoaiDangKy: {
+				required: "Vui lòng nhập số điện thoại",
+				minlength: "Tối thiểu 10 ký tự ",
+				maxlength: "Tối đa 11 ký tự",
+				number: "Bắt buộc nhập số",
 			},
-			diaChiDangKy : {
-				required : "Vui lòng nhập địa chỉ",
-				minlength : "Tối thiểu 4 ký tự ",
-				maxlength : "Tối đa 50 ký tự"
+			diaChiDangKy: {
+				required: "Vui lòng nhập địa chỉ",
+				minlength: "Tối thiểu 4 ký tự ",
+				maxlength: "Tối đa 50 ký tự"
 			}
 		}
 	});
@@ -250,48 +250,70 @@ $(document).ready(function() {
 		var email = $("input[name='emailDangNhap']").val();
 		var matkhau = $("input[name='matKhauDangNhap']").val();
 		$.ajax({
-			url : "api/DangNhap",
-			type : "POST",
-			data : {
-				email : email,
-				matkhau : matkhau
+			url: "api/DangNhap",
+			type: "POST",
+			data: {
+				email: email,
+				matkhau: matkhau
 			},
-			success : function(data) {
+			success: function(data) {
 				if (data == true) {
 					window.location.href = "./";
 				} else {
 					$("#userfail").css({
-						"display" : "contents"
+						"display": "contents"
 					});
 				}
 			}
 		});
 	});
+	$("#btnLoginAdmin").click(function() {
+		var username = $("input[name='username']").val();
+		var matkhau = $("input[name='pass']").val();
+		$.ajax({
+			url: "api/admin-login",
+			type: "POST",
+			data: {
+				username: username,
+				matkhau: matkhau
+			},
+			success: function(data) {
+				if (data == true) {
+					window.location.href = "./ManageProduct";
+				} else {
+					$("#userfailadmin").css({
+						"display": "contents"
+					});
+				}
+			}
+		});
+	});
+
 	$("#formDangNhap").validate({
-		rules : {
-			emailDangNhap : {
-				required : true,
-				email : true,
-				minlength : 6,
-				maxlength : 30,
+		rules: {
+			emailDangNhap: {
+				required: true,
+				email: true,
+				minlength: 6,
+				maxlength: 30,
 			}
 		},
-		messages : {
-			emailDangNhap : {
-				required : "Vui lòng nhập email",
-				email : "Không đúng định dạng email.",
-				minlength : "Tối thiểu 6 ký tự ",
-				maxlength : "Tối đa 30 ký tự",
+		messages: {
+			emailDangNhap: {
+				required: "Vui lòng nhập email",
+				email: "Không đúng định dạng email.",
+				minlength: "Tối thiểu 6 ký tự ",
+				maxlength: "Tối đa 30 ký tự",
 			}
 		}
 	});
 	$("#dangxuat").click(function() {
 		console.log("Log out");
 		$.ajax({
-			url : "api/DangXuat",
-			type : "POST",
-			data : {},
-			success : function(data) {
+			url: "api/DangXuat",
+			type: "POST",
+			data: {},
+			success: function(data) {
 				if (data === "logout") {
 					window.location.reload();
 				}
@@ -299,22 +321,36 @@ $(document).ready(function() {
 		});
 	});
 	$("#formThemGioHang").validate({
-		rules : {
-			soluongThemGioHang : {
-				number : true,
-				required : true,
-				min : 1,
-				max : 20,
+		rules: {
+			soluongThemGioHang: {
+				number: true,
+				required: true,
+				min: 1,
+				max: 20,
 			},
 		},
-		messages : {
-			soluongThemGioHang : {
-				number : "Không được nhập chữ.",
-				required : "Vui lòng nhập số lượng.",
-				min : "Tối thiểu 1 đơn vị.",
-				max : "Tối đa 20 đơn vị.",
+		messages: {
+			soluongThemGioHang: {
+				number: "Không được nhập chữ.",
+				required: "Vui lòng nhập số lượng.",
+				min: "Tối thiểu 1 đơn vị.",
+				max: "Tối đa 20 đơn vị.",
 			},
 		}
 	});
+	$(".removeProduct").click(function() {
 
+		if (confirm('Xoá sản phẩm ?')) {
+			var value = $(this).attr('value')
+			console.log(value)
+			$.ajax({
+				url: "api/XoaSanPham",
+				type: "POST",
+				data: { value: value, },
+				success: function(data) {
+					window.location.href = "./";
+				}
+			});
+		}
+	});
 });

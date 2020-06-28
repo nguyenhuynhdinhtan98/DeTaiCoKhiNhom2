@@ -22,9 +22,16 @@ import implement.SanPhamImpls;
 public class NhanVienService implements NhanVienImpls {
 	@Autowired
 	NhanVienDAO nhanVienDAO;
+
 	@Override
 	public NhanVien LayNhanVien(int maNhanVien) {
-		NhanVien nhanVien= nhanVienDAO.LayNhanVien(maNhanVien);
+		NhanVien nhanVien = nhanVienDAO.LayNhanVien(maNhanVien);
+		return nhanVien;
+	}
+
+	@Override
+	public NhanVien KiemTraNhanVien(String taiKhoan, String matKhau) {
+		NhanVien nhanVien = nhanVienDAO.KiemTraNhanVien(taiKhoan, matKhau);
 		return nhanVien;
 	}
 }

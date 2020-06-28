@@ -39,7 +39,7 @@ public class SanPhamService implements SanPhamImpls {
 	}
 
 	public SanPham ChiTietSanPham(int maSanPham) {
-		SanPham sanPham=sanPhamDAO.ChiTietSanPham(maSanPham);
+		SanPham sanPham = sanPhamDAO.ChiTietSanPham(maSanPham);
 		return sanPham;
 	}
 
@@ -47,5 +47,10 @@ public class SanPhamService implements SanPhamImpls {
 	public List<SanPham> getAllSanPhamWithKeyword(String keyword) {
 		List<SanPham> sanPhams = sanPhamDAO.getAllSanPhamWithKeyword(keyword);
 		return sanPhams;
-	}	
+	}
+
+	@Override
+	public void removeSanPham(int id) {
+		sanPhamDAO.removeSanPham(id);
+	}
 }

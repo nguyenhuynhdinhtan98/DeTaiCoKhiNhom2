@@ -14,11 +14,13 @@ import java.util.Date;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -29,6 +31,7 @@ import dto.ChiTietHoaDon;
 import dto.GioHang;
 import dto.HoaDon;
 import dto.KhachHang;
+import dto.NhanVien;
 import dto.SanPham;
 import service.ChiTietHoaDonService;
 import service.HoaDonService;
@@ -39,7 +42,7 @@ import service.SendEmail;
 
 @Controller
 @RequestMapping("/api")
-@SessionAttributes({ "taikhoan", "giohang" })
+@SessionAttributes({ "taikhoan", "giohang", "nhanvien" })
 public class AjaxController {
 	List<GioHang> gioHangs = new ArrayList<>();
 	double tongTienHoaDon = 0;
@@ -210,6 +213,18 @@ public class AjaxController {
 		}
 	}
 
+	@RequestMapping(value = "/admin-login", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean DangNhapAdmin(@RequestParam String username, @RequestParam String matkhau, HttpSession httpSession) {
+		NhanVien kt = nhanVienService.KiemTraNhanVien(username, matkhau);
+		if (kt.getMaNhanVien() != null) {
+			httpSession.setAttribute("nhanvien", kt);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	@PostMapping("/DangXuat")
 	@ResponseBody
 	public String DangXuat(HttpSession httpSession, SessionStatus sessionStatus) {
@@ -220,4 +235,10 @@ public class AjaxController {
 		return "logout";
 	}
 
+	@RequestMapping(value = "/XoaSanPham", method = RequestMethod.POST)
+	@ResponseBody
+	public String XoaSanPham(@RequestParam int value) {
+		sanPhamService.removeSanPham(value);
+		return "";
+	}
 }
