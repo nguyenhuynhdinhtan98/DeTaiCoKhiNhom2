@@ -53,4 +53,15 @@ public class SanPhamService implements SanPhamImpls {
 	public void removeSanPham(int id) {
 		sanPhamDAO.removeSanPham(id);
 	}
+
+	@Override
+	public void ThemSanPham(SanPham sanPham) {
+		sanPhamDAO.ThemSanPham(sanPham);
+	}
+
+	@Override
+	public void CapNhatSanPham(SanPham sanPham) {
+		sanPhamDAO.CapNhatSanPham(sanPham);
+		
+	}
 }

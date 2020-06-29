@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import dto.ChiTietSanPham;
 import dto.DanhMucSanPham;
 import dto.GioHang;
 import dto.SanPham;
@@ -33,7 +32,7 @@ public class ProductDetailController {
 
 	@GetMapping("/{maSanPham}")
 	@Transactional
-	public String Default(@PathVariable int maSanPham, ModelMap modelMap,HttpSession httpSession) {
+	public String Default(@PathVariable int maSanPham, ModelMap modelMap, HttpSession httpSession) {
 		int tongSanPhamTrongKho = 0;
 		List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 		List<DanhMucSanPham> danhMucSanPhams = new ArrayList<>();
@@ -41,15 +40,13 @@ public class ProductDetailController {
 		SanPham sanPham = sanPhamService.ChiTietSanPham(maSanPham);
 		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
 		sanPhams = sanPhamService.getBaSanPham();
-		for (ChiTietSanPham sum : sanPham.getChiTietSanPhamList()) {
-			tongSanPhamTrongKho += sum.getSoLuong();
-		}
+		tongSanPhamTrongKho = sanPham.getSoLuong();
 		modelMap.addAttribute("sanpham", sanPham);
 		modelMap.addAttribute("sanpham3", sanPhams);
 		modelMap.addAttribute("tongSanPhamTrongKho", tongSanPhamTrongKho);
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
-		if(httpSession.getAttribute("taikhoan") != null) {
-			modelMap.addAttribute("user",httpSession.getAttribute("taikhoan"));
+		if (httpSession.getAttribute("taikhoan") != null) {
+			modelMap.addAttribute("user", httpSession.getAttribute("taikhoan"));
 		}
 		return "product_detail";
 	}

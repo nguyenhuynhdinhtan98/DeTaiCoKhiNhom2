@@ -10,7 +10,6 @@
 		<class>dto.KhachHang</class>
 		<class>dto.NhanVien</class>
 		<class>dto.HoaDon</class>
-		<class>dto.ChiTietSanPham</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"

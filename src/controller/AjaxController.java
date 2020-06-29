@@ -1,10 +1,12 @@
 package controller;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,12 +30,14 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
 import dto.ChiTietHoaDon;
+import dto.DanhMucSanPham;
 import dto.GioHang;
 import dto.HoaDon;
 import dto.KhachHang;
 import dto.NhanVien;
 import dto.SanPham;
 import service.ChiTietHoaDonService;
+import service.DanhMucSanPhamService;
 import service.HoaDonService;
 import service.KhachHangService;
 import service.NhanVienService;
@@ -55,6 +59,9 @@ public class AjaxController {
 
 	@Autowired
 	SanPhamService sanPhamService;
+
+	@Autowired
+	DanhMucSanPhamService danhMucSanPhamService;
 
 	@Autowired
 	ChiTietHoaDonService chiTietHoaDonService;
@@ -235,10 +242,57 @@ public class AjaxController {
 		return "logout";
 	}
 
-	@RequestMapping(value = "/XoaSanPham", method = RequestMethod.POST)
+	@RequestMapping(value = "/ThemSanPham", method = RequestMethod.POST)
 	@ResponseBody
-	public String XoaSanPham(@RequestParam int value) {
-		sanPhamService.removeSanPham(value);
+	public String ThemSanPham(@RequestParam String tensanpham, @RequestParam String giatien,
+			@RequestParam String hinhAnh, @RequestParam int soluong, @RequestParam String mota,
+			@RequestParam int madanhmucthemsanpham) {
+		Date date = Calendar.getInstance().getTime();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String strDate = dateFormat.format(date);
+		DanhMucSanPham danhMucSanPham = danhMucSanPhamService.getDanhMucSanPhamById(madanhmucthemsanpham);
+		SanPham sanPham = new SanPham(tensanpham, giatien, mota, hinhAnh, soluong, strDate);
+		sanPham.setMaDanhMucSanPham(danhMucSanPham);
+		System.out.println(sanPham);
+		sanPhamService.ThemSanPham(sanPham);
+		return "";
+	}
+	
+	@RequestMapping(value = "/ThemDanhMucSanPham", method = RequestMethod.POST)
+	@ResponseBody
+	public String ThemDanhMucSanPham(@RequestParam String tendanhmucsanpham,
+			@RequestParam String hinhAnhDanhMuc) {
+		DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
+		danhMucSanPham.setTenDanhMuc(tendanhmucsanpham);
+		danhMucSanPham.setHinhDanhMuc(hinhAnhDanhMuc);
+		System.out.println(danhMucSanPham);
+		danhMucSanPhamService.ThemDanhMucSanPham(danhMucSanPham);
+		return "";
+	}
+
+	@RequestMapping(value = "/CapNhatSanPham", method = RequestMethod.POST)
+	@ResponseBody
+	public String CapNhatSanPham(@RequestParam int masanphamcapnhat, @RequestParam String tensanphamcapnhat,
+			@RequestParam String giatiensanphamcapnhat, @RequestParam String hinhanhsanphamcapnhat,
+			@RequestParam int soluongsanphamcapnhat, @RequestParam String motasanphamcapnhat,
+			@RequestParam int madanhmucsanphamcapnhat) {
+		Date date = Calendar.getInstance().getTime();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String strDate = dateFormat.format(date);
+		DanhMucSanPham danhMucSanPham = danhMucSanPhamService.getDanhMucSanPhamById(madanhmucsanphamcapnhat);
+		SanPham sanPham = new SanPham(tensanphamcapnhat, giatiensanphamcapnhat, motasanphamcapnhat,
+				hinhanhsanphamcapnhat, soluongsanphamcapnhat, strDate);
+		sanPham.setMaSanPham(masanphamcapnhat);
+		sanPham.setMaDanhMucSanPham(danhMucSanPham);
+		System.out.println(sanPham);
+		sanPhamService.CapNhatSanPham(sanPham);
+		return "";
+	}
+
+	@RequestMapping(value = "/XoaDanhMuc", method = RequestMethod.POST)
+	@ResponseBody
+	public String XoaDanhMuc(@RequestParam int value) {
+		danhMucSanPhamService.removeDanhMuc(value);
 		return "";
 	}
 }

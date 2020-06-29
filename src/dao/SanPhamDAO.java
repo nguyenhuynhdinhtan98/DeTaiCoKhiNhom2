@@ -79,10 +79,25 @@ public class SanPhamDAO implements SanPhamImpls {
 	}
 
 	@Override
+	@Transactional
 	public void removeSanPham(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		SanPham sanPham = session.load(SanPham.class, id);
 		session.delete(sanPham);
+	}
+
+	@Override
+	@Transactional
+	public void ThemSanPham(SanPham sanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		session.persist(sanPham);
+	}
+
+	@Override
+	@Transactional
+	public void CapNhatSanPham(SanPham sanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(sanPham);
 	}
 
 }

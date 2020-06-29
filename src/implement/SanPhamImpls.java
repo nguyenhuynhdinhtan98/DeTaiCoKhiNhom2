@@ -15,6 +15,8 @@ public interface SanPhamImpls {
 	List<SanPham> getBonSanPham();
 
 	SanPham ChiTietSanPham(int maSanPham);
+	void CapNhatSanPham(SanPham sanPham);
+	void ThemSanPham(SanPham sanPham);
 
 	void removeSanPham(int id);
 }

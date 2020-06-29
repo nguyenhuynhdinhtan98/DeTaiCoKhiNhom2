@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import dto.DanhMucSanPham;
+import dto.SanPham;
 
 import javax.transaction.*;
 
@@ -46,6 +47,31 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImpls {
 		Session session = sessionFactory.getCurrentSession();
 		DanhMucSanPham result = (DanhMucSanPham) session.createQuery(query).getSingleResult();
 		return result;
+	}
+
+	@Override
+	@Transactional
+	public DanhMucSanPham getDanhMucSanPhamById(int maDanhMucSanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.load(DanhMucSanPham.class, maDanhMucSanPham);
+
+	}
+
+	@Override
+	@Transactional
+	public void removeDanhMuc(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		DanhMucSanPham danhMucSanPham = session.load(DanhMucSanPham.class, id);
+		session.delete(danhMucSanPham);
+		
+	}
+
+	@Override
+	@Transactional
+	public void ThemDanhMucSanPham(DanhMucSanPham danhMucSanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		session.persist(danhMucSanPham);
+		
 	}
 
 }

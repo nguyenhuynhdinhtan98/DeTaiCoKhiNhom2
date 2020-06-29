@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dto;
 
 import java.io.Serializable;
@@ -34,130 +29,153 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "SanPham")
 public class SanPham implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "MaSanPham")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer maSanPham;
-    @Size(max = 4000)
-    @Column(name = "TenSanPham")
-    private String tenSanPham;
-    @Size(max = 50)
-    @Column(name = "GiaTien")
-    private String giaTien;
-    @Size(max = 4000)
-    @Column(name = "MoTa")
-    private String moTa;
-    @Size(max = 500)
-    @Column(name = "HinhSanPham")
-    private String hinhSanPham;
-    @OneToMany(mappedBy = "maSanPham", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    private List<ChiTietSanPham> chiTietSanPhamList;
-    @JoinColumn(name = "MaDanhMucSanPham", referencedColumnName = "MaDanhMucSanPham")
-    @ManyToOne
-    private DanhMucSanPham maDanhMucSanPham;
-    @OneToMany(mappedBy = "maSanPham")
-    private List<ChiTietHoaDon> chiTietHoaDonList;
+	private static final long serialVersionUID = 1L;
+	@Id
+	@Basic(optional = false)
+	@NotNull
+	@Column(name = "MaSanPham")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer maSanPham;
+	@Size(max = 4000)
+	@Column(name = "TenSanPham")
+	private String tenSanPham;
+	@Size(max = 50)
+	@Column(name = "GiaTien")
+	private String giaTien;
+	@Size(max = 4000)
+	@Column(name = "MoTa")
+	private String moTa;
+	@Size(max = 500)
+	@Column(name = "HinhSanPham")
+	private String hinhSanPham;
+	@Column(name = "SoLuong")
+	private Integer soLuong;
+	@Size(max = 50)
+	@Column(name = "NgayNhap")
+	private String ngayNhap;
 
-    public SanPham() {
-    }
+	@JoinColumn(name = "MaDanhMucSanPham", referencedColumnName = "MaDanhMucSanPham")
+	@ManyToOne
+	private DanhMucSanPham maDanhMucSanPham;
+	@OneToMany(mappedBy = "maSanPham")
+	private List<ChiTietHoaDon> chiTietHoaDonList;
 
-    public SanPham(Integer maSanPham) {
-        this.maSanPham = maSanPham;
-    }
+	public SanPham() {
+	}
 
-    public Integer getMaSanPham() {
-        return maSanPham;
-    }
+	public SanPham(Integer maSanPham) {
+		this.maSanPham = maSanPham;
+	}
 
-    public void setMaSanPham(Integer maSanPham) {
-        this.maSanPham = maSanPham;
-    }
+	public Integer getMaSanPham() {
+		return maSanPham;
+	}
 
-    public String getTenSanPham() {
-        return tenSanPham;
-    }
+	public void setMaSanPham(Integer maSanPham) {
+		this.maSanPham = maSanPham;
+	}
 
-    public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
-    }
+	public String getTenSanPham() {
+		return tenSanPham;
+	}
 
-    public String getGiaTien() {
-        return giaTien;
-    }
+	public void setTenSanPham(String tenSanPham) {
+		this.tenSanPham = tenSanPham;
+	}
 
-    public void setGiaTien(String giaTien) {
-        this.giaTien = giaTien;
-    }
+	public Integer getSoLuong() {
+		return soLuong;
+	}
 
-    public String getMoTa() {
-        return moTa;
-    }
+	public void setSoLuong(Integer soLuong) {
+		this.soLuong = soLuong;
+	}
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
-    }
+	public String getNgayNhap() {
+		return ngayNhap;
+	}
 
-    public String getHinhSanPham() {
-        return hinhSanPham;
-    }
+	public void setNgayNhap(String ngayNhap) {
+		this.ngayNhap = ngayNhap;
+	}
 
-    public void setHinhSanPham(String hinhSanPham) {
-        this.hinhSanPham = hinhSanPham;
-    }
+	public String getGiaTien() {
+		return giaTien;
+	}
 
-    @XmlTransient
-    public List<ChiTietSanPham> getChiTietSanPhamList() {
-        return chiTietSanPhamList;
-    }
+	public void setGiaTien(String giaTien) {
+		this.giaTien = giaTien;
+	}
 
-    public void setChiTietSanPhamList(List<ChiTietSanPham> chiTietSanPhamList) {
-        this.chiTietSanPhamList = chiTietSanPhamList;
-    }
+	public String getMoTa() {
+		return moTa;
+	}
 
-    public DanhMucSanPham getMaDanhMucSanPham() {
-        return maDanhMucSanPham;
-    }
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
 
-    public void setMaDanhMucSanPham(DanhMucSanPham maDanhMucSanPham) {
-        this.maDanhMucSanPham = maDanhMucSanPham;
-    }
+	public String getHinhSanPham() {
+		return hinhSanPham;
+	}
 
-    @XmlTransient
-    public List<ChiTietHoaDon> getChiTietHoaDonList() {
-        return chiTietHoaDonList;
-    }
+	public void setHinhSanPham(String hinhSanPham) {
+		this.hinhSanPham = hinhSanPham;
+	}
 
-    public void setChiTietHoaDonList(List<ChiTietHoaDon> chiTietHoaDonList) {
-        this.chiTietHoaDonList = chiTietHoaDonList;
-    }
+	public DanhMucSanPham getMaDanhMucSanPham() {
+		return maDanhMucSanPham;
+	}
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (maSanPham != null ? maSanPham.hashCode() : 0);
-        return hash;
-    }
+	public void setMaDanhMucSanPham(DanhMucSanPham maDanhMucSanPham) {
+		this.maDanhMucSanPham = maDanhMucSanPham;
+	}
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SanPham)) {
-            return false;
-        }
-        SanPham other = (SanPham) object;
-        if ((this.maSanPham == null && other.maSanPham != null) || (this.maSanPham != null && !this.maSanPham.equals(other.maSanPham))) {
-            return false;
-        }
-        return true;
-    }
+	@XmlTransient
+	public List<ChiTietHoaDon> getChiTietHoaDonList() {
+		return chiTietHoaDonList;
+	}
 
-    @Override
+	public void setChiTietHoaDonList(List<ChiTietHoaDon> chiTietHoaDonList) {
+		this.chiTietHoaDonList = chiTietHoaDonList;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		hash += (maSanPham != null ? maSanPham.hashCode() : 0);
+		return hash;
+	}
+
+	public SanPham(@Size(max = 4000) String tenSanPham, @Size(max = 50) String giaTien, @Size(max = 4000) String moTa,
+			@Size(max = 500) String hinhSanPham, Integer soLuong, @Size(max = 50) String ngayNhap) {
+		super();
+		this.tenSanPham = tenSanPham;
+		this.giaTien = giaTien;
+		this.moTa = moTa;
+		this.hinhSanPham = hinhSanPham;
+		this.soLuong = soLuong;
+		this.ngayNhap = ngayNhap;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		// TODO: Warning - this method won't work in the case the id fields are not set
+		if (!(object instanceof SanPham)) {
+			return false;
+		}
+		SanPham other = (SanPham) object;
+		if ((this.maSanPham == null && other.maSanPham != null)
+				|| (this.maSanPham != null && !this.maSanPham.equals(other.maSanPham))) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "SanPham [maSanPham=" + maSanPham + ", tenSanPham=" + tenSanPham + ", giaTien=" + giaTien + ", moTa="
 				+ moTa + ", hinhSanPham=" + hinhSanPham + "]";
 	}
-    
+
 }

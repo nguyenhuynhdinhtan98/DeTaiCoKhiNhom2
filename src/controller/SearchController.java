@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import dto.ChiTietSanPham;
 import dto.DanhMucSanPham;
 import dto.GioHang;
 import dto.SanPham;

@@ -58,12 +58,12 @@
 				<div class="collapse navbar-collapse" id="navbar-menu">
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown"
 						data-out="fadeOutUp">
-						<li class="nav-item active"><a class="nav-link" href="">Sản
-								Phẩm</a></li>
+						<li class="nav-item active"><a class="nav-link"
+							href="ManageProduct">Sản Phẩm</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="product">Danh
-								Mục </a></li>
-						<li class="nav-item"><a class="nav-link" href="contact">Đơn
+						<li class="nav-item"><a class="nav-link"
+							href="ManageCategory">Danh Mục </a></li>
+						<li class="nav-item"><a class="nav-link" href="ManageBill">Đơn
 								Hàng </a></li>
 					</ul>
 				</div>
@@ -77,6 +77,7 @@
 
 	<div class="products-box">
 		<div class="container">
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="title-all text-center">
@@ -85,32 +86,39 @@
 				</div>
 			</div>
 			<div class="row special-list">
+				<a href="AddProduct"><button type="button"
+						class="btn btn-success btn-lg" style="height: 45px">Thêm
+						sản phẩm</button></a>
 				<table class="table">
 					<thead>
 						<tr>
 							<th scope="col">Mã Sản Phẩm</th>
 							<th scope="col">Tên Sản Phẩm</th>
 							<th scope="col">Giá Tiền</th>
+							<th scope="col">Ngày Nhập</th>
 							<th scope="col">Hình Ảnh</th>
-							<th scope="col">Sửa/Xoá</th>
+							<th scope="col">Danh Mục</th>
+							<th scope="col">Sửa</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="sanpham" items="${sanpham}">
 							<tr>
-								<th scope="row">${sanpham.getMaSanPham()}</th>
-								<td id="result">${sanpham.getTenSanPham()}</td>
+								<th>${sanpham.getMaSanPham()}</th>
+								<td>${sanpham.getTenSanPham()}</td>
 								<td>${sanpham.getGiaTien()}</td>
+								<td>${sanpham.getNgayNhap()}</td>
 								<td><img id="imageProductAdmin"
-									src="<c:url value="./resources/image/products/${sanpham.getHinhSanPham()}"/>"
+									src="<c:url value="/resources/image/products/${sanpham.getHinhSanPham()}"/>"
 									class="imageProductAdmin" alt="Image"
 									style="height: 80px; width: 80px"></td>
+								<td>${sanpham.getMaDanhMucSanPham().getTenDanhMuc()}</td>
 								<td><div class="btn-group-horizontal">
 										<a href="EditProduct/${sanpham.getMaSanPham()}"><button
 												type="button" class="btn btn-success btn-lg"
 												style="height: 45px">Sửa</button></a>
-										<button type="button" class="btn btn-danger btn-lg removeProduct"
-											style="height: 45px" id="removeProduct" value="${sanpham.getMaSanPham()}">Xoá</button>
+										<%-- <button type="button" class="btn btn-danger btn-lg removeProduct"
+											style="height: 45px" id="removeProduct" value="${sanpham.getMaSanPham()}">Xoá</button> --%>
 									</div></td>
 							</tr>
 

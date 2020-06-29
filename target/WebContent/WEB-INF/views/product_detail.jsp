@@ -200,11 +200,10 @@
 						<p>
 						<h4>Mô tả:</h4>
 						<p>${sanpham.getMoTa()}</p>
-						<form id="formThemGioHang" class="formThemGioHang">
+						<form id="formThemGioHang" onsubmit="return false">
 							<ul>
 								<li>
 									<div class="form-group quantity-box">
-
 										<label class="control-label">Số lượng</label> <input
 											name="soluongThemGioHang" class="form-control" id="soluong"
 											value="1" min="1" max="20" type="number">

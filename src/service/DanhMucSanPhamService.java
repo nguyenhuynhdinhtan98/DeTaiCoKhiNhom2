@@ -28,5 +28,22 @@ public class DanhMucSanPhamService implements DanhMucSanPhamImpls {
 		return danhMucSanPhams;
 	}
 
-	
+	@Override
+	public DanhMucSanPham getDanhMucSanPhamById(int maDanhMucSanPham) {
+		// TODO Auto-generated method stub
+		return danhMucSanPhamDAO.getDanhMucSanPhamById(maDanhMucSanPham);
+	}
+
+	@Override
+	public void removeDanhMuc(int id) {
+		danhMucSanPhamDAO.removeDanhMuc(id);
+
+	}
+
+	@Override
+	public void ThemDanhMucSanPham(DanhMucSanPham danhMucSanPham) {
+		danhMucSanPhamDAO.ThemDanhMucSanPham(danhMucSanPham);
+
+	}
+
 }

@@ -16,9 +16,11 @@ $(document).ready(function() {
 		var masanpham = $("#masanpham").text();
 		var tensanpham = $("#tensanpham").text();
 		var soLuong = $("#soluong").val();
+		if (soLuong > 20) {
+			soLuong = "e";
+		}
 		var giatien = $("#giatien").text();
 		var hinhAnh = $("#hinhAnh").attr("src").replace(/^.*[\\\/]/, "");
-		console.log(tensanpham);
 		$.ajax({
 			url: "../api/ThemGioHang",
 			type: "GET",
@@ -68,7 +70,6 @@ $(document).ready(function() {
 	$("#order").click(function() {
 		// var masanpham =
 		// $(".table").find("tbody").find("tr").attr('name');
-
 		var hoVaTen = $("#hoVaTen").val();
 		var sdt = $("#phone").val();
 		var diachi = $("#address").val();
@@ -307,6 +308,7 @@ $(document).ready(function() {
 			}
 		}
 	});
+
 	$("#dangxuat").click(function() {
 		console.log("Log out");
 		$.ajax({
@@ -338,19 +340,209 @@ $(document).ready(function() {
 			},
 		}
 	});
-	$(".removeProduct").click(function() {
-
-		if (confirm('Xoá sản phẩm ?')) {
+	$(".removeCategory").click(function() {
+		if (confirm('Xoá danh mục ?')) {
 			var value = $(this).attr('value')
-			console.log(value)
 			$.ajax({
-				url: "api/XoaSanPham",
+				url: "api/XoaDanhMuc",
 				type: "POST",
 				data: { value: value, },
 				success: function(data) {
-					window.location.href = "./";
+					window.location.href = "ManageCategory";
 				}
 			});
 		}
+	});
+	$("#formThemSanPham").validate({
+		rules: {
+			tensanphamadd: {
+				required: true,
+				minlength: 5,
+			},
+			giatiemadd: {
+				required: true,
+				number: true,
+				minlength: 4,
+			},
+			motasanpham: {
+				required: true,
+				minlength: 50,
+			},
+			soluongadd: {
+				required: true,
+				number: true,
+				minlength: 1,
+			},
+			hinhanhadd: {
+				required: true,
+			},
+			madanhmucthemsanpham: {
+				number: true,
+			},
+		},
+		messages: {
+			tensanphamadd: {
+				required: "Vui lòng nhập tên sản phẩm.",
+				minlength: "Tối thiểu 5 ký tự ",
+			},
+			giatiemadd: {
+				required: "Vui lòng nhập số.",
+				minlength: "Tối thiểu 4 ký tự ",
+				number: "Bắt buộc nhập số",
+			},
+			motasanpham: {
+				required: "Vui lòng nhập mô tả.",
+				minlength: "Tối thiểu 50 ký tự ",
+			},
+			soluongadd: {
+				required: "Vui lòng nhập số lượng.",
+				minlength: "Tối thiểu 1 ký tự ",
+				number: "Bắt buộc nhập số",
+			},
+			hinhanhadd: {
+				required: "Vui lòng nhập hình ảnh.",
+			},
+			madanhmucthemsanpham: {
+				number: "Vui lòng chọn danh mục.",
+			}
+		}
+	});
+	$("#btnThemSanPham").click(function() {
+		var tensanpham = $("input[name='tensanphamadd']").val();
+		var giatien = $("input[name='giatiemadd']").val();
+		var hinhAnh = $("input[name='hinhanhadd']").val().replace(/^.*[\\\/]/, '');
+		var soluong = $("input[name='soluongadd']").val();
+		var mota = $("textarea[name='motasanpham']").val();
+		var madanhmucthemsanpham = $("select[name='madanhmucthemsanpham']").val();
+		if (madanhmucthemsanpham !== "Chọn danh mục sản phẩm" && hinhAnh !== null) {
+			$.ajax({
+				url: "api/ThemSanPham",
+				type: "POST",
+				data: {
+					tensanpham: tensanpham,
+					giatien: giatien,
+					hinhAnh: hinhAnh,
+					soluong: soluong,
+					mota: mota,
+					madanhmucthemsanpham: madanhmucthemsanpham
+				},
+				success: function(data) {
+					window.location.href = "ManageProduct";
+				}
+			});
+		}
+	});
+	$("#formThemDanhMuc").validate({
+		rules: {
+			tendanhmucadd: {
+				required: true,
+				minlength: 5,
+			},
+
+			hinhAnhDanhMuc: {
+				required: true,
+			},
+
+		},
+		messages: {
+			tendanhmucadd: {
+				required: "Vui lòng nhập tên sản phẩm.",
+				minlength: "Tối thiểu 5 ký tự ",
+			},
+
+			hinhAnhDanhMuc: {
+				required: "Vui lòng nhập hình ảnh.",
+			},
+
+		}
+	});
+	$("#btnThemDanhMucSanPham").click(function() {
+		var tendanhmucsanpham = $("input[name='tendanhmucadd']").val();
+		var hinhAnhDanhMuc = $("input[name='hinhAnhDanhMuc']").val().replace(/^.*[\\\/]/, '');
+		console.log(tendanhmucsanpham + " " + hinhAnhDanhMuc)
+		if (hinhAnhDanhMuc !== "" && tendanhmucsanpham !== "") {
+			$.ajax({
+				url: "api/ThemDanhMucSanPham",
+				type: "POST",
+				data: {
+					tendanhmucsanpham: tendanhmucsanpham,
+					hinhAnhDanhMuc: hinhAnhDanhMuc,
+				},
+				success: function(data) {
+					window.location.href = "ManageCategory";
+				}
+			});
+		}
+	});
+	$("#formCapNhatSanPham").validate({
+		rules: {
+			tensanphamcapnhat: {
+				required: true,
+				minlength: 5,
+			},
+			giatiensanphamcapnhat: {
+				required: true,
+				number: true,
+				minlength: 4,
+			},
+			motasanphamcapnhat: {
+				required: true,
+				minlength: 50,
+			},
+			soluongsanphamcapnhat: {
+				required: true,
+				number: true,
+				minlength: 1,
+			},
+		},
+		messages: {
+			tensanphamcapnhat: {
+				required: "Vui lòng nhập tên sản phẩm.",
+				minlength: "Tối thiểu 5 ký tự ",
+			},
+			giatiensanphamcapnhat: {
+				required: "Vui lòng nhập số.",
+				minlength: "Tối thiểu 4 ký tự ",
+				number: "Bắt buộc nhập số",
+			},
+			motasanphamcapnhat: {
+				required: "Vui lòng nhập mô tả.",
+				minlength: "Tối thiểu 50 ký tự ",
+			},
+			soluongsanphamcapnhat: {
+				required: "Vui lòng nhập số lượng.",
+				minlength: "Tối thiểu 1 ký tự ",
+				number: "Bắt buộc nhập số",
+			},
+
+		}
+	});
+	$("#btnCapNhatSanPhamAdmin").click(function() {
+		var masanphamcapnhat = $("input[name='masanphamcapnhat']").val();
+		var tensanphamcapnhat = $("input[name='tensanphamcapnhat']").val();
+		var giatiensanphamcapnhat = $("input[name='giatiensanphamcapnhat']").val();
+		var motasanphamcapnhat = $("textarea[name='motasanphamcapnhat']").val();
+		var hinhanhsanphamcapnhat = $("input[name='hinhanhsanphamcapnhat']").val().replace(/^.*[\\\/]/, '');
+		if (hinhanhsanphamcapnhat == "") {
+			hinhanhsanphamcapnhat = $("input[name='hinhanhhienthicapnhat']").val();
+		}
+		var soluongsanphamcapnhat = $("input[name='soluongsanphamcapnhat']").val();
+		var madanhmucsanphamcapnhat = $("select[name='madanhmucsanphamcapnhat']").val();
+		$.ajax({
+			url: "../api/CapNhatSanPham",
+			type: "POST",
+			data: {
+				masanphamcapnhat: masanphamcapnhat,
+				tensanphamcapnhat: tensanphamcapnhat,
+				giatiensanphamcapnhat: giatiensanphamcapnhat,
+				motasanphamcapnhat: motasanphamcapnhat,
+				hinhanhsanphamcapnhat: hinhanhsanphamcapnhat,
+				soluongsanphamcapnhat: soluongsanphamcapnhat,
+				madanhmucsanphamcapnhat: madanhmucsanphamcapnhat
+			},
+			success: function(data) {
+				window.location.href = "../ManageProduct";
+			}
+		});
 	});
 });
