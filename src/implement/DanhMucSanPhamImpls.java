@@ -11,5 +11,6 @@ public interface DanhMucSanPhamImpls {
 	DanhMucSanPham getAllDanhMucSanPhamById(int maDanhMucSanPham);
 	DanhMucSanPham getDanhMucSanPhamById(int maDanhMucSanPham);
 	void ThemDanhMucSanPham(DanhMucSanPham danhMucSanPham);
+	void CapNhatDanhMucSanPham(DanhMucSanPham danhMucSanPham);
 	void removeDanhMuc(int id);
 }

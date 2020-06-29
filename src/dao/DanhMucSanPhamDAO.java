@@ -74,4 +74,12 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImpls {
 		
 	}
 
+	@Override
+	@Transactional
+	public void CapNhatDanhMucSanPham(DanhMucSanPham danhMucSanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(danhMucSanPham);
+		
+	}
+
 }

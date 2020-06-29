@@ -46,4 +46,9 @@ public class DanhMucSanPhamService implements DanhMucSanPhamImpls {
 
 	}
 
+	@Override
+	public void CapNhatDanhMucSanPham(DanhMucSanPham danhMucSanPham) {
+		danhMucSanPhamDAO.CapNhatDanhMucSanPham(danhMucSanPham);
+	}
+
 }

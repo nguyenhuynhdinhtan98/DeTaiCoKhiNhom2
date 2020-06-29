@@ -160,7 +160,7 @@ public class AjaxController {
 					chiTietHoaDonService.ThemChiTietHoaDon(chiTietHoaDon);
 				}
 				SendEmail email = new SendEmail();
-//				email.SendEmail("nguyenhuynhdinhtan98@gmail.com", gioHangs, khachHang);
+				email.SendEmail(khachHang.getTenTaiKhoan(), gioHangs, khachHang);
 				output = "2";
 				httpSession.removeAttribute("giohang");
 				sessionStatus.setComplete();
@@ -237,8 +237,11 @@ public class AjaxController {
 	public String DangXuat(HttpSession httpSession, SessionStatus sessionStatus) {
 		if (httpSession.getAttribute("taikhoan") != null) {
 			httpSession.removeAttribute("taikhoan");
-			sessionStatus.setComplete();
 		}
+		if (httpSession.getAttribute("nhanvien") != null) {
+			httpSession.removeAttribute("nhanvien");
+		}
+		sessionStatus.setComplete();
 		return "logout";
 	}
 
@@ -257,16 +260,28 @@ public class AjaxController {
 		sanPhamService.ThemSanPham(sanPham);
 		return "";
 	}
-	
+
 	@RequestMapping(value = "/ThemDanhMucSanPham", method = RequestMethod.POST)
 	@ResponseBody
-	public String ThemDanhMucSanPham(@RequestParam String tendanhmucsanpham,
-			@RequestParam String hinhAnhDanhMuc) {
+	public String ThemDanhMucSanPham(@RequestParam String tendanhmucsanpham, @RequestParam String hinhAnhDanhMuc) {
 		DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
 		danhMucSanPham.setTenDanhMuc(tendanhmucsanpham);
 		danhMucSanPham.setHinhDanhMuc(hinhAnhDanhMuc);
 		System.out.println(danhMucSanPham);
 		danhMucSanPhamService.ThemDanhMucSanPham(danhMucSanPham);
+		return "";
+	}
+
+	@RequestMapping(value = "/CapNhatDanhMucSanPham", method = RequestMethod.POST)
+	@ResponseBody
+	public String CapNhatDanhMucSanPham(@RequestParam int madanhmucsanphamcapnhat,
+			@RequestParam String tendanhmuccapnhat, @RequestParam String hinhAnhDanhMucCapNhat) {
+		DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
+		danhMucSanPham.setMaDanhMucSanPham(madanhmucsanphamcapnhat);
+		danhMucSanPham.setTenDanhMuc(tendanhmuccapnhat);
+		danhMucSanPham.setHinhDanhMuc(hinhAnhDanhMucCapNhat);
+		System.out.println(danhMucSanPham);
+		danhMucSanPhamService.CapNhatDanhMucSanPham(danhMucSanPham);
 		return "";
 	}
 

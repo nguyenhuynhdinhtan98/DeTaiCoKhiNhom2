@@ -63,8 +63,7 @@
 
 						<li class="nav-item"><a class="nav-link"
 							href="ManageCategory">Danh Mục </a></li>
-						<li class="nav-item"><a class="nav-link" href="ManageBill">Đơn
-								Hàng </a></li>
+						
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

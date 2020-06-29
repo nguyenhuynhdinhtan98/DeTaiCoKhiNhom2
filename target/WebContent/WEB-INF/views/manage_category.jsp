@@ -60,11 +60,9 @@
 						data-out="fadeOutUp">
 						<li class="nav-item active"><a class="nav-link"
 							href="ManageProduct">Sản Phẩm</a></li>
-
 						<li class="nav-item"><a class="nav-link"
-							href="ManageCategory">Danh Mục </a></li>
-						<li class="nav-item"><a class="nav-link" href="ManageBill">Đơn
-								Hàng </a></li>
+							href="">Danh Mục </a></li>
+						
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

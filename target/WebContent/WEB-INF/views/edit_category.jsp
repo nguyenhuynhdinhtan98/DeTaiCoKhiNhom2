@@ -81,7 +81,7 @@
 
 						<li class="nav-item"><a class="nav-link"
 							href="/ManageCategory">Danh Mục </a></li>
-
+					
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -91,75 +91,59 @@
 	</header>
 	<!-- End Main Top -->
 
-	<div class="cart-box-main">
+	<div class="products-box">
 		<div class="container">
-			<div class="site__body">
-				<div class="block">
-					<div class="container ">
-						<div class="row justify-content-center">
-							<div class="col-xl-7 col-lg-6 col-md-8">
-								<div class="card flex-grow-1 mb-0 mt-5">
-									<div class="card-body">
-										<div class="card-title text-center">
-											<h1>Cập Nhật Sản Phẩm</h1>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-all text-center">
+						<h1>Cập nhật danh mục sản phẩm</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row special-list">
+				<div class="cart-box-main">
+					<div class="container">
+						<div class="site__body">
+							<div class="block">
+								<div class="container ">
+									<div class="row justify-content-center">
+										<div class="col-xl-7 col-lg-6 col-md-8">
+											<div class="card flex-grow-1 mb-0 mt-5">
+												<div class="card-body">
+													<form id="formCapNhatDanhMuc" onsubmit="return false">
+														<input name="madanhmucsanphamcapnhat" type="hidden"
+															class="form-control"
+															value="${danhmuc.getMaDanhMucSanPham()}">
+														<div class="form-group">
+															<label for="track-order-id">Tên Danh Mục</label> <input
+																name="tendanhmuccapnhat" id="tendanhmuccapnhat"
+																type="text" class="form-control"
+																placeholder="Tên danh mục"
+																value="${danhmuc.getTenDanhMuc()}">
+														</div>
+
+														<div class="form-group">
+															<label for="track-order-id">Hình ảnh</label></br> <img
+																src="<c:url value="/resources/image/categories/${danhmuc.getHinhDanhMuc()}"/>"
+																class="imageProductAdmin" alt="Image"
+														
+																style="height: 400px; width: 100%; border-width: 1px solid; padding: 15px; border-color: black;">
+															<input type="file" class="form-control"
+																style="border: none" name="hinhAnhDanhMucCapNhat"
+																accept='image/*' value="${danhmuc.getHinhDanhMuc()}">
+															<input name="hinhanhhienthicapnhatdanhmuc" type="hidden"
+																class="form-control"
+																value="${danhmuc.getHinhDanhMuc()}">
+														</div>
+														<div class="pt-3">
+															<button type="submit" class="btn btn-success login"
+																class="btnCapNhatDanhMucSanPham"
+																id="btnCapNhatDanhMucSanPham">Lưu</button>
+														</div>
+													</form>
+												</div>
+											</div>
 										</div>
-										<form id="formCapNhatSanPham" onsubmit="return false">
-											<input name="masanphamcapnhat" type="hidden"
-												class="form-control" value="${sanpham.getMaSanPham()}">
-
-											<div class="form-group">
-												<label for="track-order-id">Tên Sản Phẩm</label> <input
-													id="tensanphamcapnhat" type="text" class="form-control"
-													name="tensanphamcapnhat" placeholder="Tên Sản Phẩm"
-													value="${sanpham.getTenSanPham()}">
-											</div>
-											<div class="form-group">
-												<label for="track-order-id">Giá tiền</label> <input
-													id="giatiensanphamcapnhat" type="text" class="form-control"
-													name="giatiensanphamcapnhat" placeholder="Giá tiền"
-													value="${sanpham.getGiaTien()}">
-											</div>
-											<div class="form-group">
-												<label for="track-order-id">Mô tả</label>
-												<textarea class="form-control" rows="8" cols="50"
-													name="motasanphamcapnhat">${sanpham.getMoTa()}</textarea>
-
-											</div>
-											<div class="form-group">
-												<label for="track-order-id">Hình ảnh</label> </br> <img
-													id="imageProductAdmin"
-													src="<c:url value="/resources/image/products/${sanpham.getHinhSanPham()}"/>"
-													class="imageProductAdmin" alt="Image"
-													name="hinhanhhienthicapnhat"
-													value="/resources/image/products/${sanpham.getHinhSanPham()}"
-													style="height: 400px; width: 100%; border-width: 1px solid; padding: 15px; border-color: black;">
-												<input type="file" class="form-control-file"
-													name="hinhanhsanphamcapnhat" style="border: none"
-													accept='image/*'> <input
-													name="hinhanhhienthicapnhat" type="hidden"
-													class="form-control" value="${sanpham.getHinhSanPham()}">
-											</div>
-											<div class="form-group">
-												<label for="track-order-id">Số lượng</label> <input
-													type="number" class="form-control"
-													name="soluongsanphamcapnhat" placeholder="Số lượng"
-													value="${sanpham.getSoLuong()}">
-											</div>
-											<div class="form-group">
-												<label for="track-order-id">Danh mục</label> <select
-													class="form-control" id="exampleFormControlSelect1"
-													name="madanhmucsanphamcapnhat" style="height: 35px">
-													<c:forEach var="danhmuc" items="${danhmuc}">
-														<option value="${danhmuc.getMaDanhMucSanPham()}"
-															${danhmuc.getMaDanhMucSanPham() == selectedRole ? 'selected' : ''}>${danhmuc.getTenDanhMuc()}</option>
-													</c:forEach>
-												</select>
-											</div>
-											<div class="pt-3">
-												<button type="submit" class="btn btn-success login"
-													id="btnCapNhatSanPhamAdmin">Cập nhật</button>
-											</div>
-										</form>
 									</div>
 								</div>
 							</div>

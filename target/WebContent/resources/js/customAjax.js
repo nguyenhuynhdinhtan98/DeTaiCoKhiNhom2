@@ -322,6 +322,19 @@ $(document).ready(function() {
 			}
 		});
 	});
+	$("#dangxuat").click(function() {
+		console.log("Log out");
+		$.ajax({
+			url: "../api/DangXuat",
+			type: "POST",
+			data: {},
+			success: function(data) {
+				if (data === "logout") {
+					window.location.reload();
+				}
+			}
+		});
+	});
 	$("#formThemGioHang").validate({
 		rules: {
 			soluongThemGioHang: {
@@ -456,6 +469,47 @@ $(document).ready(function() {
 
 		}
 	});
+	$("#formCapNhatDanhMuc").validate({
+		rules: {
+			tendanhmuccapnhat: {
+				required: true,
+				minlength: 5,
+			},
+		},
+		messages: {
+			tendanhmuccapnhat: {
+				required: "Vui lòng nhập tên sản phẩm.",
+				minlength: "Tối thiểu 5 ký tự ",
+			},
+		}
+	});
+	$("#btnCapNhatDanhMucSanPham").click(function() {
+		var madanhmucsanphamcapnhat = $("input[name='madanhmucsanphamcapnhat']").val();
+		var tendanhmuccapnhat = $("input[name='tendanhmuccapnhat']").val();
+		var hinhAnhDanhMucCapNhat = $("input[name='hinhAnhDanhMucCapNhat']").val().replace(/^.*[\\\/]/, '');
+		if (hinhAnhDanhMucCapNhat == "") {
+			hinhAnhDanhMucCapNhat = $("input[name='hinhanhhienthicapnhatdanhmuc']").val();
+		}
+
+		if (hinhAnhDanhMucCapNhat !== "" && tendanhmuccapnhat !== "") {
+			$.ajax({
+				url: "../api/CapNhatDanhMucSanPham",
+				type: "POST",
+				data: {
+					madanhmucsanphamcapnhat: madanhmucsanphamcapnhat,
+					tendanhmuccapnhat: tendanhmuccapnhat,
+					hinhAnhDanhMucCapNhat: hinhAnhDanhMucCapNhat,
+				},
+				success: function(data) {
+					window.location.href = "../ManageCategory";
+				}
+			});
+		}
+	});
+
+
+
+
 	$("#btnThemDanhMucSanPham").click(function() {
 		var tendanhmucsanpham = $("input[name='tendanhmucadd']").val();
 		var hinhAnhDanhMuc = $("input[name='hinhAnhDanhMuc']").val().replace(/^.*[\\\/]/, '');
@@ -474,6 +528,9 @@ $(document).ready(function() {
 			});
 		}
 	});
+
+
+
 	$("#formCapNhatSanPham").validate({
 		rules: {
 			tensanphamcapnhat: {
@@ -545,4 +602,31 @@ $(document).ready(function() {
 			}
 		});
 	});
+	$("#dangxuatnhanvien").click(function() {
+		console.log("Log out");
+		$.ajax({
+			url: "api/DangXuat",
+			type: "POST",
+			data: {},
+			success: function(data) {
+				if (data === "logout") {
+					window.location.reload();
+				}
+			}
+		});
+	});
+	$("#dangxuatnhanvien").click(function() {
+		console.log("Log out");
+		$.ajax({
+			url: "../api/DangXuat",
+			type: "POST",
+			data: {},
+			success: function(data) {
+				if (data === "logout") {
+					window.location.reload();
+				}
+			}
+		});
+	});
+
 });

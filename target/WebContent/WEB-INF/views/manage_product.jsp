@@ -59,12 +59,11 @@
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown"
 						data-out="fadeOutUp">
 						<li class="nav-item active"><a class="nav-link"
-							href="ManageProduct">Sản Phẩm</a></li>
+							href="">Sản Phẩm</a></li>
 
 						<li class="nav-item"><a class="nav-link"
 							href="ManageCategory">Danh Mục </a></li>
-						<li class="nav-item"><a class="nav-link" href="ManageBill">Đơn
-								Hàng </a></li>
+					
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -117,8 +116,7 @@
 										<a href="EditProduct/${sanpham.getMaSanPham()}"><button
 												type="button" class="btn btn-success btn-lg"
 												style="height: 45px">Sửa</button></a>
-										<%-- <button type="button" class="btn btn-danger btn-lg removeProduct"
-											style="height: 45px" id="removeProduct" value="${sanpham.getMaSanPham()}">Xoá</button> --%>
+
 									</div></td>
 							</tr>
 

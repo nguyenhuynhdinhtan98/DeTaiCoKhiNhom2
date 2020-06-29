@@ -15,7 +15,7 @@ import dto.GioHang;
 import dto.KhachHang;
 
 public class SendEmail {
-	public void SendEmail(String to,List<GioHang> gioHangs,KhachHang khachHang) {
+	public void SendEmail(String to, List<GioHang> gioHangs, KhachHang khachHang) {
 		// Get properties object
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -35,12 +35,24 @@ public class SendEmail {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("Testing Subject");
-			message.setText("Gundam");
+			message.setSubject("Mua sản phẩm thành công với khách hàng " + khachHang.getHoTen());
+			double tongtien = 0;
+			StringBuffer content = new StringBuffer().append("Thông tin của khách hàng.\n")
+					.append("Tên khách hàng: " + khachHang.getHoTen() + ".\n")
+					.append("Số điện thoại: " + khachHang.getSoDienThoai() + ".\n")
+					.append("Đia chỉ: " + khachHang.getDiaChi() + ".\n");
+			for (GioHang gioHang : gioHangs) {
+				tongtien += Double.parseDouble(gioHang.getGiaTien()) * gioHang.getSoLuong();
+				content.append("Tên sản phẩm : " + gioHang.getTenSanPham() + "- giá tiền: " + gioHang.getGiaTien()
+						+ "- số lượng: " + gioHang.getSoLuong() + "- tổng tiền sản phẩm: "
+						+ Double.parseDouble(gioHang.getGiaTien()) * gioHang.getSoLuong() + ".\n");
+			}
+			content.append("Tổng tiền là: " + tongtien + "VND.\n");
+			content.append("Chúc quý khách một ngày vui vẻ." + "\n");
+			System.out.println(content);
+			message.setText(content.toString());
 			// send message
 			Transport.send(message);
-
-			System.out.println("Message sent successfully");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
