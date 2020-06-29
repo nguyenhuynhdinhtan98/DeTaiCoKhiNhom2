@@ -1,5 +1,8 @@
 package dto;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 public class GioHang {
 	private int maSanPham;
 	private String tenSanPham;

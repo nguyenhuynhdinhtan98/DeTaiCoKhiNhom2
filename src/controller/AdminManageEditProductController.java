@@ -24,7 +24,10 @@ import service.DanhMucSanPhamService;
 import service.KhachHangService;
 import service.NhanVienService;
 import service.SanPhamService;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Controller
 @RequestMapping("/EditProduct")
 @SessionAttributes({ "taikhoan", "giohang", "nhanvien" })

@@ -4,7 +4,10 @@ import java.util.List;
 
 import dto.DanhMucSanPham;
 import dto.SanPham;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 
 public interface DanhMucSanPhamImpls {
 	List<DanhMucSanPham> getAllDanhMucSanPham();

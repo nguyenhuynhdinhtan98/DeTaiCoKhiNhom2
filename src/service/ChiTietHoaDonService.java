@@ -17,7 +17,10 @@ import implement.ChiTietHoaDonImpls;
 import implement.DanhMucSanPhamImpls;
 import implement.HoaDonImpls;
 import implement.SanPhamImpls;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Service
 public class ChiTietHoaDonService implements ChiTietHoaDonImpls {
 	@Autowired

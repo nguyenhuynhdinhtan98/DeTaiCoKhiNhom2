@@ -20,7 +20,10 @@ import implement.HoaDonImpls;
 import implement.KhachHangImpls;
 import implement.NhanVienImpls;
 import implement.SanPhamImpls;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Service
 public class KhachHangService implements KhachHangImpls {
 	@Autowired

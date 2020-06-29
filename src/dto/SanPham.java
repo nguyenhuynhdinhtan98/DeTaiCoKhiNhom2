@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
- * @author Gundam
- */
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Entity
 @Table(name = "SanPham")
 public class SanPham implements Serializable {

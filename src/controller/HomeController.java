@@ -35,7 +35,10 @@ import dto.SanPham;
 import service.DanhMucSanPhamService;
 import service.SanPhamService;
 import service.SendEmail;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Controller
 @RequestMapping("/")
 @SessionAttributes({ "taikhoan", "giohang" })

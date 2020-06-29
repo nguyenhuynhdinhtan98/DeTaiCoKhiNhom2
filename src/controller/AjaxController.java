@@ -43,7 +43,10 @@ import service.KhachHangService;
 import service.NhanVienService;
 import service.SanPhamService;
 import service.SendEmail;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Controller
 @RequestMapping("/api")
 @SessionAttributes({ "taikhoan", "giohang", "nhanvien" })

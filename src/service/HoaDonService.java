@@ -14,7 +14,10 @@ import dto.SanPham;
 import implement.DanhMucSanPhamImpls;
 import implement.HoaDonImpls;
 import implement.SanPhamImpls;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Service
 public class HoaDonService implements HoaDonImpls {
 	@Autowired

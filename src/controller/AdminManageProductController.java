@@ -22,7 +22,10 @@ import dto.SanPham;
 import service.KhachHangService;
 import service.NhanVienService;
 import service.SanPhamService;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Controller
 @RequestMapping("/ManageProduct")
 @SessionAttributes({ "taikhoan", "giohang", "nhanvien" })

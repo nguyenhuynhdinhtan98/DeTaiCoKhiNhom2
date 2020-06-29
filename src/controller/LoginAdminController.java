@@ -17,7 +17,10 @@ import dto.GioHang;
 import dto.NhanVien;
 import service.KhachHangService;
 import service.NhanVienService;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Controller
 @RequestMapping("/admin")
 public class LoginAdminController {

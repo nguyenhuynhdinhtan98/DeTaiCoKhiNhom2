@@ -13,10 +13,13 @@ import javax.mail.internet.MimeMessage;
 
 import dto.GioHang;
 import dto.KhachHang;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 public class SendEmail {
 	public void SendEmail(String to, List<GioHang> gioHangs, KhachHang khachHang) {
-		// Get properties object
+	
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.host", MailConfig.HOST_NAME);
@@ -31,11 +34,11 @@ public class SendEmail {
 			}
 		});
 
-		// compose message
+	
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("Mua sản phẩm thành công với khách hàng " + khachHang.getHoTen());
+			message.setSubject("Mua sản phẩm thành công với khách hàng - " + khachHang.getHoTen());
 			double tongtien = 0;
 			StringBuffer content = new StringBuffer().append("Thông tin của khách hàng.\n")
 					.append("Tên khách hàng: " + khachHang.getHoTen() + ".\n")

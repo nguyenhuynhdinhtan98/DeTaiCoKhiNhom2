@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Gundam
+ * @author Nguyễn Huỳnh Đình Tân
  */
 @Entity
 @Table(name = "ChiTietHoaDon")

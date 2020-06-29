@@ -17,7 +17,10 @@ import implement.DanhMucSanPhamImpls;
 import implement.HoaDonImpls;
 import implement.NhanVienImpls;
 import implement.SanPhamImpls;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 @Service
 public class NhanVienService implements NhanVienImpls {
 	@Autowired

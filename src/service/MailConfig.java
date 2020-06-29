@@ -1,5 +1,8 @@
 package service;
-
+/**
+*
+* @author Nguyễn Huỳnh Đình Tân
+*/
 public class MailConfig {
 	public static final String HOST_NAME = "smtp.gmail.com";
 
