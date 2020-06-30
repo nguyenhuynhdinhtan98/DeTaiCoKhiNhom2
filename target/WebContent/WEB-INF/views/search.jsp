@@ -210,7 +210,7 @@
 									<div class="type-lb">
 										<p class="sale">Sale</p>
 									</div>
-									<img
+									<img  id="imageProduct"
 										src="<c:url value="./resources/image/products/${sanpham.getHinhSanPham()}"/>"
 										class="img-fluid" alt="Image">
 
