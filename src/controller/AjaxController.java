@@ -138,7 +138,7 @@ public class AjaxController {
 			@RequestParam String diaChi, HttpSession httpSession, SessionStatus sessionStatus, WebRequest request) {
 		String output = "";
 		KhachHang khachHang = (KhachHang) httpSession.getAttribute("taikhoan");
-		if (hoVaTen.length() <= 5 || soDienThoai.length() < 9 || diaChi.length() < 4) {	
+		if (hoVaTen.length() < 5 || soDienThoai.length() < 9 || diaChi.length() < 4) {	
 			output = "1";
 		} else {
 			if (httpSession.getAttribute("giohang") == null) {
@@ -192,8 +192,8 @@ public class AjaxController {
 		if (khachHangService.KiemTraEmailKhachHang(emailDangKy) == true || matcher.find() == false) {
 			output = "1";
 		} else {
-			if (hoVaTenDangKy.equals("") || emailDangKy.equals("") || matKhauDangKy1.equals("")
-					|| matKhauDangKy2.equals("") || dienThoaiDangKy.length() < 10 || diaChiDangKy.length() < 4) {
+			if (hoVaTenDangKy.length() < 5 || emailDangKy.equals("") || matKhauDangKy1.length() < 4
+					|| matKhauDangKy2.length() < 4 || dienThoaiDangKy.length() < 10 || diaChiDangKy.length() < 4) {
 				output = "2";
 			} else {
 				if (matKhauDangKy1.equals(matKhauDangKy2)) {
