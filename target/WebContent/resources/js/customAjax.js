@@ -449,7 +449,8 @@ $(document).ready(function() {
 		rules: {
 			tendanhmucadd: {
 				required: true,
-				minlength: 5,
+				minlength: 5, 
+				maxlength: 45,
 			},
 
 			hinhAnhDanhMuc: {
@@ -461,6 +462,7 @@ $(document).ready(function() {
 			tendanhmucadd: {
 				required: "Vui lòng nhập tên sản phẩm.",
 				minlength: "Tối thiểu 5 ký tự ",
+				maxlength: "Tối đa 45 ký tự ",
 			},
 
 			hinhAnhDanhMuc: {
@@ -474,12 +476,14 @@ $(document).ready(function() {
 			tendanhmuccapnhat: {
 				required: true,
 				minlength: 5,
+				maxlength: 45,
 			},
 		},
 		messages: {
 			tendanhmuccapnhat: {
 				required: "Vui lòng nhập tên sản phẩm.",
 				minlength: "Tối thiểu 5 ký tự ",
+				maxlength: "Tối đa 45 ký tự ",
 			},
 		}
 	});
@@ -536,6 +540,7 @@ $(document).ready(function() {
 			tensanphamcapnhat: {
 				required: true,
 				minlength: 5,
+				maxlength: 45,
 			},
 			giatiensanphamcapnhat: {
 				required: true,
@@ -556,6 +561,7 @@ $(document).ready(function() {
 			tensanphamcapnhat: {
 				required: "Vui lòng nhập tên sản phẩm.",
 				minlength: "Tối thiểu 5 ký tự ",
+				maxlength: "Tối đa 45 ký tự ",
 			},
 			giatiensanphamcapnhat: {
 				required: "Vui lòng nhập số.",
@@ -585,22 +591,24 @@ $(document).ready(function() {
 		}
 		var soluongsanphamcapnhat = $("input[name='soluongsanphamcapnhat']").val();
 		var madanhmucsanphamcapnhat = $("select[name='madanhmucsanphamcapnhat']").val();
-		$.ajax({
-			url: "../api/CapNhatSanPham",
-			type: "POST",
-			data: {
-				masanphamcapnhat: masanphamcapnhat,
-				tensanphamcapnhat: tensanphamcapnhat,
-				giatiensanphamcapnhat: giatiensanphamcapnhat,
-				motasanphamcapnhat: motasanphamcapnhat,
-				hinhanhsanphamcapnhat: hinhanhsanphamcapnhat,
-				soluongsanphamcapnhat: soluongsanphamcapnhat,
-				madanhmucsanphamcapnhat: madanhmucsanphamcapnhat
-			},
-			success: function(data) {
-				window.location.href = "../ManageProduct";
-			}
-		});
+		if (masanphamcapnhat !== "" && tensanphamcapnhat !== "" && giatiensanphamcapnhat >= 1000 && motasanphamcapnhat !== "" && soluongsanphamcapnhat >= 0 && madanhmucsanphamcapnhat !== "") {
+			$.ajax({
+				url: "../api/CapNhatSanPham",
+				type: "POST",
+				data: {
+					masanphamcapnhat: masanphamcapnhat,
+					tensanphamcapnhat: tensanphamcapnhat,
+					giatiensanphamcapnhat: giatiensanphamcapnhat,
+					motasanphamcapnhat: motasanphamcapnhat,
+					hinhanhsanphamcapnhat: hinhanhsanphamcapnhat,
+					soluongsanphamcapnhat: soluongsanphamcapnhat,
+					madanhmucsanphamcapnhat: madanhmucsanphamcapnhat
+				},
+				success: function(data) {
+					window.location.href = "../ManageProduct";
+				}
+			});
+		}
 	});
 	$("#dangxuatnhanvien").click(function() {
 		console.log("Log out");

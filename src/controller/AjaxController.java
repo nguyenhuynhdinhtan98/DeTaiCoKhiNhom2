@@ -160,6 +160,7 @@ public class AjaxController {
 				for (GioHang gioHang : gioHangs) {
 					ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(gioHang.getSoLuong(), gioHang.getTongTien());
 					SanPham sanPhamCapNhatSoLuong = sanPhamService.getSanPhamById(gioHang.getMaSanPham());
+					System.out.println(sanPhamCapNhatSoLuong);
 					sanPhamCapNhatSoLuong.setSoLuong(sanPhamCapNhatSoLuong.getSoLuong() - gioHang.getSoLuong());	
 					chiTietHoaDon.setMaHoaDon(hoaDon);
 					chiTietHoaDon.setMaSanPham(sanPhamService.ChiTietSanPham(gioHang.getMaSanPham()));

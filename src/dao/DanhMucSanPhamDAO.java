@@ -63,7 +63,7 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImpls {
 	@Transactional
 	public void removeDanhMuc(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		DanhMucSanPham danhMucSanPham = session.load(DanhMucSanPham.class, id);
+		DanhMucSanPham danhMucSanPham = session.find(DanhMucSanPham.class, id);
 		session.delete(danhMucSanPham);
 		
 	}

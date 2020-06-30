@@ -108,7 +108,7 @@ public class SanPhamDAO implements SanPhamImpls {
 	@Transactional
 	public SanPham getSanPhamById(int maSanPham) {
 		Session session = sessionFactory.getCurrentSession();
-		SanPham result = session.load(SanPham.class, maSanPham);
+		SanPham result = session.find(SanPham.class, maSanPham);
 		return result;
 	}
 
