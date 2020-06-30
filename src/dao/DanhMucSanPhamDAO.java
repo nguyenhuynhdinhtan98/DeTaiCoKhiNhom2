@@ -46,9 +46,8 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImpls {
 	@Override
 	@Transactional
 	public DanhMucSanPham getAllDanhMucSanPhamById(int maDanhMucSanPham) {
-		String query = "from DanhMucSanPham where MaDanhMucSanPham like '" + maDanhMucSanPham + "'";
 		Session session = sessionFactory.getCurrentSession();
-		DanhMucSanPham result = (DanhMucSanPham) session.createQuery(query).getSingleResult();
+		DanhMucSanPham result = session.load(DanhMucSanPham.class, maDanhMucSanPham);
 		return result;
 	}
 

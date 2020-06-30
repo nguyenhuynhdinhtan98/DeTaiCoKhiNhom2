@@ -24,10 +24,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
+
 /**
-*
-* @author Nguyễn Huỳnh Đình Tân
-*/
+ *
+ * @author Nguyễn Huỳnh Đình Tân
+ */
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SanPhamDAO implements SanPhamImpls {
@@ -106,12 +107,9 @@ public class SanPhamDAO implements SanPhamImpls {
 	@Override
 	@Transactional
 	public SanPham getSanPhamById(int maSanPham) {
-		String query = "from SanPham where MaSanPham like '" + maSanPham + "'";
 		Session session = sessionFactory.getCurrentSession();
-		SanPham result =  (SanPham) session.createQuery(query).getSingleResult();
+		SanPham result = session.load(SanPham.class, maSanPham);
 		return result;
 	}
-
-
 
 }

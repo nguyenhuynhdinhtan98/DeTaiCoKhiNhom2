@@ -40,7 +40,7 @@ public class ProductDetailController {
 		List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 		List<DanhMucSanPham> danhMucSanPhams = new ArrayList<>();
 		List<SanPham> sanPhams = new ArrayList<>();
-		SanPham sanPham = sanPhamService.ChiTietSanPham(maSanPham);
+		SanPham sanPham = sanPhamService.getSanPhamById(maSanPham);
 		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
 		sanPhams = sanPhamService.getBaSanPham();
 		tongSanPhamTrongKho = sanPham.getSoLuong();
