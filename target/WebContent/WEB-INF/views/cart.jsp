@@ -73,7 +73,7 @@
 						</a>
 							<ul class="dropdown-menu">
 								<c:forEach var="danhmuc" items="${danhmuc}">
-									<li><a href="/category/${danhmuc.getMaDanhMucSanPham()}">${danhmuc.getTenDanhMuc()}</a></li>
+									<li><a href="./category/${danhmuc.getMaDanhMucSanPham()}">${danhmuc.getTenDanhMuc()}</a></li>
 								</c:forEach>
 							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="./product">Sản
