@@ -53,7 +53,7 @@ import service.SendEmail;
 @SessionAttributes({ "taikhoan", "giohang", "nhanvien" })
 public class AjaxController {
 	List<GioHang> gioHangs = new ArrayList<>();
-	double tongTienHoaDon = 0;
+
 	@Autowired
 	HoaDonService hoaDonService;
 	@Autowired
@@ -112,12 +112,12 @@ public class AjaxController {
 	@ResponseBody
 	public String LayTongTien(@RequestParam int maSanPham, HttpSession httpSession) {
 		DecimalFormat format = new DecimalFormat("0.#");
+		double tongTienHoaDon = 0;
 		if (httpSession.getAttribute("giohang") != null) {
 			gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 			for (GioHang gioHang : gioHangs) {
 				tongTienHoaDon += Double.valueOf(gioHang.getTongTien());
 			}
-
 		}
 		return format.format(tongTienHoaDon);
 	}
