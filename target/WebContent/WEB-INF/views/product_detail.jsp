@@ -191,35 +191,56 @@
 								<td style="padding-left: 5px">
 									<h5 id="giatien">${sanpham.getGiaTien()}</h5>
 								<td>
-								<td style="padding-left: 2px">Đồng
+								<td style="padding-left: 2px"> Đồng
 								<td>
 							</tr>
 						</table>
 						<p class="available-stock">
-							<span>Còn ${tongSanPhamTrongKho} sản phẩm còn lại</span>
+							<span>Còn ${sanpham.getSoLuong()} sản phẩm còn lại</span>
 						<p>
 						<h4>Mô tả:</h4>
 						<p>${sanpham.getMoTa()}</p>
 						<form id="formThemGioHang" onsubmit="return false">
-							<ul>
-								<li>
-									<div class="form-group quantity-box">
-										<label class="control-label">Số lượng</label> <input
-											name="soluongThemGioHang" class="form-control" id="soluong"
-											value="1" min="1" max="20" type="number">
-
-									</div>
-								</li>
-								<li>
-									<div class="form-group ">
-										<label class="control-label">Thêm vào giỏ</label>
-										<button type="submit" class="btn btn-warning add-to-cart"
-											id="add-to-cart">
-											<i class="fas fa-shopping-cart"></i> Chọn mua
-										</button>
-									</div>
-								</li>
-							</ul>
+							<c:if test="${sanpham.getSoLuong() > 0}">
+								<ul>
+									<li>
+										<div class="form-group quantity-box">
+											<label class="control-label">Số lượng</label> <input
+												name="soluongThemGioHang" class="form-control" id="soluong"
+												value="1" min="1" max="20" type="number">
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<label class="control-label">Thêm vào giỏ</label>
+											<button type="submit" class="btn btn-warning add-to-cart"
+												id="add-to-cart">
+												<i class="fas fa-shopping-cart"></i> Chọn mua
+											</button>
+										</div>
+									</li>
+								</ul>
+							</c:if>
+							<c:if test="${sanpham.getSoLuong() <= 0}">
+								<ul>
+									<li>
+										<div class="form-group quantity-box">
+											<label class="control-label">Số lượng</label> <input
+												name="soluongThemGioHang" class="form-control" id="soluong"
+												value="1" min="1" max="20" type="number" disabled="true">
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<label class="control-label">Thêm vào giỏ</label>
+											<button type="submit" class="btn btn-warning add-to-cart"
+												id="add-to-cart" disabled>
+												<i class="fas fa-shopping-cart"></i> Chọn mua
+											</button>
+										</div>
+									</li>
+								</ul>
+							</c:if>
 						</form>
 					</div>
 				</div>

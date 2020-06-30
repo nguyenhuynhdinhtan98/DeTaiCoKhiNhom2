@@ -103,4 +103,15 @@ public class SanPhamDAO implements SanPhamImpls {
 		session.update(sanPham);
 	}
 
+	@Override
+	@Transactional
+	public SanPham getSanPhamById(int maSanPham) {
+		String query = "from SanPham where MaSanPham like '" + maSanPham + "'";
+		Session session = sessionFactory.getCurrentSession();
+		SanPham result =  (SanPham) session.createQuery(query).getSingleResult();
+		return result;
+	}
+
+
+
 }

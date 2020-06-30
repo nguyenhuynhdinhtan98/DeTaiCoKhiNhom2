@@ -13,8 +13,10 @@ public interface SanPhamImpls {
 	List<SanPham> getAllSanPhamWithKeyword(String keyword);
 	List<SanPham> getBaSanPham();
 	List<SanPham> getBonSanPham();
+
 	SanPham ChiTietSanPham(int maSanPham);
 	void CapNhatSanPham(SanPham sanPham);
 	void ThemSanPham(SanPham sanPham);
 	void removeSanPham(int id);
+	SanPham getSanPhamById(int maSanPham);
 }

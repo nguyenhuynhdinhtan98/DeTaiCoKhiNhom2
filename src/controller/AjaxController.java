@@ -43,10 +43,11 @@ import service.KhachHangService;
 import service.NhanVienService;
 import service.SanPhamService;
 import service.SendEmail;
+
 /**
-*
-* @author Nguyễn Huỳnh Đình Tân
-*/
+ *
+ * @author Nguyễn Huỳnh Đình Tân
+ */
 @Controller
 @RequestMapping("/api")
 @SessionAttributes({ "taikhoan", "giohang", "nhanvien" })
@@ -158,8 +159,11 @@ public class AjaxController {
 				hoaDonService.ThemHoaDon(hoaDon);
 				for (GioHang gioHang : gioHangs) {
 					ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon(gioHang.getSoLuong(), gioHang.getTongTien());
+					SanPham sanPhamCapNhatSoLuong = sanPhamService.getSanPhamById(gioHang.getMaSanPham());
+					sanPhamCapNhatSoLuong.setSoLuong(sanPhamCapNhatSoLuong.getSoLuong() - gioHang.getSoLuong());	
 					chiTietHoaDon.setMaHoaDon(hoaDon);
 					chiTietHoaDon.setMaSanPham(sanPhamService.ChiTietSanPham(gioHang.getMaSanPham()));
+					sanPhamService.CapNhatSanPham(sanPhamCapNhatSoLuong);
 					chiTietHoaDonService.ThemChiTietHoaDon(chiTietHoaDon);
 				}
 				SendEmail email = new SendEmail();

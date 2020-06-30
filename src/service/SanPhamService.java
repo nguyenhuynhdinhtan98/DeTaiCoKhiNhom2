@@ -67,4 +67,10 @@ public class SanPhamService implements SanPhamImpls {
 		sanPhamDAO.CapNhatSanPham(sanPham);
 		
 	}
+
+	@Override
+	public SanPham getSanPhamById(int maSanPham) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.getSanPhamById(maSanPham);
+	}
 }

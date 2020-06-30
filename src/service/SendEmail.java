@@ -13,13 +13,14 @@ import javax.mail.internet.MimeMessage;
 
 import dto.GioHang;
 import dto.KhachHang;
+
 /**
-*
-* @author Nguyễn Huỳnh Đình Tân
-*/
+ *
+ * @author Nguyễn Huỳnh Đình Tân
+ */
 public class SendEmail {
 	public void SendEmail(String to, List<GioHang> gioHangs, KhachHang khachHang) {
-	
+
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.host", MailConfig.HOST_NAME);
@@ -34,7 +35,6 @@ public class SendEmail {
 			}
 		});
 
-	
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
@@ -47,10 +47,10 @@ public class SendEmail {
 			for (GioHang gioHang : gioHangs) {
 				tongtien += Double.parseDouble(gioHang.getGiaTien()) * gioHang.getSoLuong();
 				content.append("Tên sản phẩm : " + gioHang.getTenSanPham() + "- giá tiền: " + gioHang.getGiaTien()
-						+ "- số lượng: " + gioHang.getSoLuong() + "- tổng tiền sản phẩm: "
-						+ Double.parseDouble(gioHang.getGiaTien()) * gioHang.getSoLuong() + ".\n");
+						+ " - số lượng: " + gioHang.getSoLuong() + " - tổng tiền sản phẩm: "
+						+ String.valueOf(Double.parseDouble(gioHang.getGiaTien()) * gioHang.getSoLuong()) + " VND.\n");
 			}
-			content.append("Tổng tiền là: " + tongtien + "VND.\n");
+			content.append("Tổng tiền là: " + String.valueOf(tongtien) + " VND.\n");
 			content.append("Chúc quý khách một ngày vui vẻ." + "\n");
 			System.out.println(content);
 			message.setText(content.toString());
