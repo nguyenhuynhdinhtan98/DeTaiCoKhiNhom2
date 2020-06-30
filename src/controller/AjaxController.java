@@ -138,7 +138,7 @@ public class AjaxController {
 			@RequestParam String diaChi, HttpSession httpSession, SessionStatus sessionStatus, WebRequest request) {
 		String output = "";
 		KhachHang khachHang = (KhachHang) httpSession.getAttribute("taikhoan");
-		if (hoVaTen.length() < 5 || soDienThoai.length() < 9 || diaChi.length() < 4) {	
+		if (hoVaTen.length() < 5 || soDienThoai.length() < 9 || diaChi.length() < 4) {
 			output = "1";
 		} else {
 			if (httpSession.getAttribute("giohang") == null) {
@@ -172,6 +172,8 @@ public class AjaxController {
 				output = "2";
 				httpSession.removeAttribute("giohang");
 				sessionStatus.setComplete();
+				gioHangs= new ArrayList<GioHang>();
+				httpSession.setAttribute("giohang",gioHangs);
 				httpSession.setAttribute("taikhoan", khachHang);
 			}
 		}
