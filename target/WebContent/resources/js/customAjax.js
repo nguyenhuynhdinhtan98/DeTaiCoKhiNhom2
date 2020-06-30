@@ -494,8 +494,7 @@ $(document).ready(function() {
 		if (hinhAnhDanhMucCapNhat == "") {
 			hinhAnhDanhMucCapNhat = $("input[name='hinhanhhienthicapnhatdanhmuc']").val();
 		}
-
-		if (hinhAnhDanhMucCapNhat !== "" && tendanhmuccapnhat !== "") {
+		if (hinhAnhDanhMucCapNhat !== "" && tendanhmuccapnhat.length >= 5 && tendanhmuccapnhat.length <=45) {
 			$.ajax({
 				url: "../api/CapNhatDanhMucSanPham",
 				type: "POST",
@@ -518,7 +517,7 @@ $(document).ready(function() {
 		var tendanhmucsanpham = $("input[name='tendanhmucadd']").val();
 		var hinhAnhDanhMuc = $("input[name='hinhAnhDanhMuc']").val().replace(/^.*[\\\/]/, '');
 		console.log(tendanhmucsanpham + " " + hinhAnhDanhMuc)
-		if (hinhAnhDanhMuc !== "" && tendanhmucsanpham !== "") {
+		if (hinhAnhDanhMuc !== "" && tendanhmucsanpham.length >= 5 && tendanhmucsanpham.length <=45) {
 			$.ajax({
 				url: "api/ThemDanhMucSanPham",
 				type: "POST",
@@ -591,7 +590,7 @@ $(document).ready(function() {
 		}
 		var soluongsanphamcapnhat = $("input[name='soluongsanphamcapnhat']").val();
 		var madanhmucsanphamcapnhat = $("select[name='madanhmucsanphamcapnhat']").val();
-		if (masanphamcapnhat !== "" && tensanphamcapnhat !== "" && giatiensanphamcapnhat >= 1000 && motasanphamcapnhat !== "" && soluongsanphamcapnhat >= 0 && madanhmucsanphamcapnhat !== "") {
+		if (masanphamcapnhat !== "" && tensanphamcapnhat.length >= 5 && tensanphamcapnhat.length <=45 && giatiensanphamcapnhat >= 1000 && motasanphamcapnhat.length >49 && soluongsanphamcapnhat >= 0 && madanhmucsanphamcapnhat !== "") {
 			$.ajax({
 				url: "../api/CapNhatSanPham",
 				type: "POST",
