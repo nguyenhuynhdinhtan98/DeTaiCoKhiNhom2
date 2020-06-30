@@ -52,7 +52,6 @@ public class SendEmail {
 			}
 			content.append("Tổng tiền là: " + String.valueOf(tongtien) + " VND.\n");
 			content.append("Chúc quý khách một ngày vui vẻ." + "\n");
-			System.out.println(content);
 			message.setText(content.toString());
 			// send message
 			Transport.send(message);

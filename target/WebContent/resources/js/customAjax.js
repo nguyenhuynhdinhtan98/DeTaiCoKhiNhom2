@@ -160,7 +160,7 @@ $(document).ready(function() {
 					});
 				}
 				if (data == 2) {
-					alert("Điền đủ thông tin vào form.")
+					alert("Kiểm tra thông tin vào form.")
 				}
 				if (data == 3) {
 					window.location.reload();
