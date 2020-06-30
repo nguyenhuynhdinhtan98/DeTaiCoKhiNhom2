@@ -80,8 +80,8 @@
 							</ul></li>
 						<li class="nav-item"><a class="nav-link" href="product">Sản
 								phẩm</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="contact">Liên hệ </a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên
+								hệ </a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -108,8 +108,8 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-search"></i></span>
 				<form method="get" action="search">
-					<input type="text" class="form-control" placeholder="Search" name="keyword"
-						id="searchProduct">
+					<input type="text" class="form-control" placeholder="Search"
+						name="keyword" id="searchProduct">
 				</form>
 				<span class="input-group-addon close-search"><i
 					class="fa fa-times"></i></span>
@@ -133,8 +133,8 @@
 							</h1>
 							<p class="m-b-40">Hãy suy nghĩ khác biệt</p>
 							<p>
-								<a class="btn hvr-hover new-product" href="product" id="new-product">Sản
-									phẩm mới</a>
+								<a class="btn hvr-hover new-product" href="product"
+									id="new-product">Sản phẩm mới</a>
 							</p>
 						</div>
 					</div>
@@ -243,16 +243,15 @@
 	<div class="categories-shop">
 		<div class="container">
 			<div class="row">
-				<c:forEach var="danhmuc" items="${danhmuc}">
+				<c:forEach var="saudanhmuc" items="${saudanhmuc}">
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="shop-cat-box">
 							<img class="img-fluid"
-								src="./resources/image/categories/${danhmuc.getHinhDanhMuc()}"
+								src="./resources/image/categories/${saudanhmuc.getHinhDanhMuc()}"
 								alt="" /> <a class="btn hvr-hover"
-								href="category/${danhmuc.getMaDanhMucSanPham()}">${danhmuc.getTenDanhMuc()}</a>
+								href="category/${saudanhmuc.getMaDanhMucSanPham()}">${saudanhmuc.getTenDanhMuc()}</a>
 						</div>
 					</div>
-
 				</c:forEach>
 			</div>
 		</div>
@@ -266,7 +265,7 @@
 				<div class="col-lg-12">
 					<div class="title-all text-center">
 						<h1>Sản phẩm nổi bật</h1>
-					
+
 					</div>
 				</div>
 			</div>

@@ -83,5 +83,14 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImpls {
 		session.update(danhMucSanPham);
 		
 	}
+	@Override
+	@Transactional
+	public List<DanhMucSanPham> getSauDanhMucSanPham() {
+		// TODO Auto-generated method stub
+		String query = "from DanhMucSanPham ";
+		Session session = sessionFactory.getCurrentSession();
+		List<DanhMucSanPham> result = session.createQuery(query).setFirstResult(0).setMaxResults(6).getResultList();
+		return result;
+	}
 
 }

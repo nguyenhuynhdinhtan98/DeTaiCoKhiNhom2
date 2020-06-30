@@ -35,10 +35,11 @@ import dto.SanPham;
 import service.DanhMucSanPhamService;
 import service.SanPhamService;
 import service.SendEmail;
+
 /**
-*
-* @author Nguyễn Huỳnh Đình Tân
-*/
+ *
+ * @author Nguyễn Huỳnh Đình Tân
+ */
 @Controller
 @RequestMapping("/")
 @SessionAttributes({ "taikhoan", "giohang" })
@@ -51,20 +52,22 @@ public class HomeController {
 
 	@GetMapping
 	@Transactional
-	public String Default( ModelMap modelMap, HttpSession httpSession) {
+	public String Default(ModelMap modelMap, HttpSession httpSession) {
 		List<DanhMucSanPham> danhMucSanPhams = new ArrayList<>();
+		List<DanhMucSanPham> saudanhMucSanPhams = new ArrayList<>();
 		List<SanPham> sanPhams4 = new ArrayList<>();
 		sanPhams4 = sanPhamService.getBaSanPham();
+		saudanhMucSanPhams = danhMucSanPhamService.getSauDanhMucSanPham();
 		danhMucSanPhams = danhMucSanPhamService.getAllDanhMucSanPham();
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		modelMap.addAttribute("lay4sanpham", sanPhams4);
+		modelMap.addAttribute("saudanhmuc", saudanhMucSanPhams);
+
 		if (httpSession.getAttribute("taikhoan") != null) {
 			System.out.println(httpSession.getAttribute("taikhoan"));
 			modelMap.addAttribute("user", httpSession.getAttribute("taikhoan"));
 		}
 		modelMap.addAttribute("giohang", httpSession.getAttribute("giohang"));
-		//SendEmail email = new SendEmail();
-		// email.SendEmail("nguyenhuynhdinhtan98@gmail.com");
 		return "home";
 	}
 }

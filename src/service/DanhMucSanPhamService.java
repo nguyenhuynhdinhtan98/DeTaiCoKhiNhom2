@@ -54,4 +54,10 @@ public class DanhMucSanPhamService implements DanhMucSanPhamImpls {
 		danhMucSanPhamDAO.CapNhatDanhMucSanPham(danhMucSanPham);
 	}
 
+	@Override
+	public List<DanhMucSanPham> getSauDanhMucSanPham() {
+		// TODO Auto-generated method stub
+		return danhMucSanPhamDAO.getSauDanhMucSanPham();
+	}
+
 }

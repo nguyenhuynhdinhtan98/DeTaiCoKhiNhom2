@@ -12,6 +12,7 @@ import dto.SanPham;
 public interface DanhMucSanPhamImpls {
 	List<DanhMucSanPham> getAllDanhMucSanPham();
 	DanhMucSanPham getAllDanhMucSanPhamById(int maDanhMucSanPham);
+	List<DanhMucSanPham> getSauDanhMucSanPham();
 	DanhMucSanPham getDanhMucSanPhamById(int maDanhMucSanPham);
 	void ThemDanhMucSanPham(DanhMucSanPham danhMucSanPham);
 	void CapNhatDanhMucSanPham(DanhMucSanPham danhMucSanPham);
