@@ -427,7 +427,7 @@ $(document).ready(function() {
 		var soluong = $("input[name='soluongadd']").val();
 		var mota = $("textarea[name='motasanpham']").val();
 		var madanhmucthemsanpham = $("select[name='madanhmucthemsanpham']").val();
-		if (madanhmucthemsanpham !== "Chọn danh mục sản phẩm" && hinhAnh !== null) {
+		if (madanhmucthemsanpham !== "Chọn danh mục sản phẩm" && hinhAnh !== null && tensanpham.length >= 5 && tensanpham.length <=45 && giatien >= 1000 && mota.length >49 && soluong >= 0 ) {
 			$.ajax({
 				url: "api/ThemSanPham",
 				type: "POST",
@@ -517,7 +517,7 @@ $(document).ready(function() {
 		var tendanhmucsanpham = $("input[name='tendanhmucadd']").val();
 		var hinhAnhDanhMuc = $("input[name='hinhAnhDanhMuc']").val().replace(/^.*[\\\/]/, '');
 		console.log(tendanhmucsanpham + " " + hinhAnhDanhMuc)
-		if (hinhAnhDanhMuc !== "" && tendanhmucsanpham.length >= 5 && tendanhmucsanpham.length <=45) {
+		if (hinhAnhDanhMuc !== "" && tendanhmucsanpham.length >= 5 && tendanhmucsanpham.length <=45 ) {
 			$.ajax({
 				url: "api/ThemDanhMucSanPham",
 				type: "POST",
