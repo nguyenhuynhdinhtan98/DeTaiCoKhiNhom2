@@ -220,7 +220,7 @@
 										hàng</button>
 								</c:if>
 								<c:if test="${user == null}">
-									<a href="login" class="btn btn-warning text-white"
+									<a href="login" class="btn btn-warning text-white disabled" role="button" aria-disabled="true"
 										id="OrderRedirect">Đặt hàng</a>
 								</c:if>
 							</div>
