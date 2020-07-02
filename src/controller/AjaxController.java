@@ -168,7 +168,7 @@ public class AjaxController {
 					chiTietHoaDonService.ThemChiTietHoaDon(chiTietHoaDon);
 				}
 				SendEmail email = new SendEmail();
-				email.SendEmail(khachHang.getTenTaiKhoan(), gioHangs, khachHang);
+				email.SendEmail(khachHang.getTenTaiKhoan(), gioHangs,hoVaTen,soDienThoai,diaChi);
 				output = "2";
 				httpSession.removeAttribute("giohang");
 				sessionStatus.setComplete();

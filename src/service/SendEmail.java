@@ -19,7 +19,7 @@ import dto.KhachHang;
  * @author Nguyễn Huỳnh Đình Tân
  */
 public class SendEmail {
-	public void SendEmail(String to, List<GioHang> gioHangs, KhachHang khachHang) {
+	public void SendEmail(String to, List<GioHang> gioHangs,String hoten,String sdt,String diachi) {
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -38,12 +38,12 @@ public class SendEmail {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("Mua sản phẩm thành công với khách hàng - " + khachHang.getHoTen());
+			message.setSubject("Mua sản phẩm thành công với khách hàng - " + hoten);
 			double tongtien = 0;
 			StringBuffer content = new StringBuffer().append("Thông tin của khách hàng.\n")
-					.append("Tên khách hàng: " + khachHang.getHoTen() + ".\n")
-					.append("Số điện thoại: " + khachHang.getSoDienThoai() + ".\n")
-					.append("Đia chỉ: " + khachHang.getDiaChi() + ".\n");
+					.append("Tên khách hàng: " + hoten + ".\n")
+					.append("Số điện thoại: " + sdt + ".\n")
+					.append("Đia chỉ: " + diachi + ".\n");
 			for (GioHang gioHang : gioHangs) {
 				tongtien += Double.parseDouble(gioHang.getGiaTien()) * gioHang.getSoLuong();
 				content.append("Tên sản phẩm : " + gioHang.getTenSanPham() + "- giá tiền: " + gioHang.getGiaTien()
