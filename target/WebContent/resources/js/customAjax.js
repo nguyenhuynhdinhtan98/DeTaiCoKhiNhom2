@@ -361,7 +361,11 @@ $(document).ready(function() {
 				type: "POST",
 				data: { value: value, },
 				success: function(data) {
-					window.location.href = "ManageCategory";
+					if(data === "1"){
+						alert("Danh mục hiện còn tồn tại sản phẩm.");
+					}else{
+						window.location.href = "ManageCategory";
+					}
 				}
 			});
 		}

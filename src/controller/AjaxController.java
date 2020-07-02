@@ -317,7 +317,15 @@ public class AjaxController {
 	@RequestMapping(value = "/XoaDanhMuc", method = RequestMethod.POST)
 	@ResponseBody
 	public String XoaDanhMuc(@RequestParam int value) {
-		danhMucSanPhamService.removeDanhMuc(value);
-		return "";
+		DanhMucSanPham danhMucSanPham=danhMucSanPhamService.getDanhMucSanPhamById(value);
+		System.out.println(danhMucSanPham.getSanPhamList().size());
+		if(danhMucSanPham.getSanPhamList().size() != 0) {
+			return "1";
+		}
+		else{
+			danhMucSanPhamService.removeDanhMuc(value);
+			return "2";
+		}
+	
 	}
 }
